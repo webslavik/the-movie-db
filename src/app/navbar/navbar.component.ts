@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -7,11 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-	showThemeList() {
-		console.log('hi');
-	}
+	showThemes: boolean = false;
 
-  constructor() { }
+  onShowThemes() {
+  	this.showThemes = !this.showThemes;
+  	console.log(this.showThemes);
+  }
 
   ngOnInit() {
   }

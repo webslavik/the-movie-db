@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ThemeSwitchComponent } from './theme-switch/theme-switch.component';
 
+import { ThemeService } from './theme.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,7 @@ import { ThemeSwitchComponent } from './theme-switch/theme-switch.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [ThemeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

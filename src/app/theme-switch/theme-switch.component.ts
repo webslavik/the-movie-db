@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-theme-switch',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./theme-switch.component.scss']
 })
 export class ThemeSwitchComponent implements OnInit {
+
+	@Input() showThemes;
+	@Output() hideThemes = new EventEmitter<any>();
 
 	themeData = [
 			{
@@ -31,13 +35,13 @@ export class ThemeSwitchComponent implements OnInit {
 			}
 		];
 
-  constructor() { }
+	onHideThemes() {
+		this.showThemes = !this.showThemes;
+		this.hideThemes.emit(this.showThemes);
+  	console.log(this.showThemes);
+	}
 
   ngOnInit() {
-  }
-
-  changeTheme() {
-  	alert('hi');
   }
 
 }

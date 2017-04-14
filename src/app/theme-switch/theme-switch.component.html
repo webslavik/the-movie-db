@@ -1,8 +1,8 @@
-<div class="theme-choose">
+<div class="theme-choose" [ngClass]='{"is-show": showThemes}' (click)='onHideThemes()'>
   <div class="theme-sheet">
     <ul class="theme-colors-list">
-      <li *ngFor='let item of themeData' class="theme-color-item">
-        <button class="theme-color" (click)='changeTheme()' >
+      <li *ngFor='let item of themeData' class="theme-color-item" [ngClass]='{"is-active": showThemes}'>
+        <button class="theme-color" [ngClass]='{"is-show": showThemes, "is-hide": !showThemes}' (click)='changeTheme()' >
           <span class="theme-color-background" [ngClass]="item.color"></span>
           <span class="theme-color-icon-container">
 						<span class="theme-color-icon">
@@ -12,6 +12,6 @@
         </button>
       </li>
     </ul>
-    <div class="theme-sheet-background"></div>
+    <div class="theme-sheet-background" [ngClass]='{"is-show": showThemes, "is-hide": !showThemes}'></div>
   </div>
 </div>
