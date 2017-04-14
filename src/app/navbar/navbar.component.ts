@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+	showThemeList() {
+		console.log('hi');
+	}
+
   constructor() { }
 
   ngOnInit() {

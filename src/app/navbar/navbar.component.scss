@@ -69,6 +69,10 @@
 
 //  THEME
 //-------------------------------------------------
+.theme-switch {
+	position: relative;
+}
+
 .theme-switch-button {
 	display: flex;
 	justify-content: center;
@@ -83,3 +87,4 @@
 	height: 26px;
 	fill: rgba($black, .55);
 }
+
