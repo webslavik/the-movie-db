@@ -10,6 +10,8 @@ export class NavbarComponent implements OnInit {
 
 	showThemes: boolean = false;
 
+  constructor() {}
+
   onShowThemes() {
   	this.showThemes = !this.showThemes;
   	console.log(this.showThemes);

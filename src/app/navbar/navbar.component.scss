@@ -25,20 +25,14 @@
 //  SEARCH
 //-------------------------------------------------
 .search {
-	display: flex;
-	flex-direction: column;
-	width: 724px;
-	position: relative;
-}
-
-
-.search-field {
+	flex-grow: 2;
 	display: flex;
 	align-items: center;
-	width: 100%;
+	max-width: 724px;
+	position: relative;
 
 	input {
-		width: 100%;
+		width: 700px;
 		border: none;
 		padding: 5px;
 		font-size: 16px;
@@ -50,6 +44,9 @@
 	height: 20px;
 	margin-right: 8px;
 	fill: rgba($black, .70);
+
+	position: relative;
+	top: -1px;
 }
 
 .search-suggestions {

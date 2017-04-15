@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ThemeSwitchComponent } from './theme-switch/theme-switch.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,7 @@ import { ThemeSwitchComponent } from './theme-switch/theme-switch.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
