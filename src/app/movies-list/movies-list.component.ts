@@ -9,20 +9,22 @@ import { TMDbService } from '../tmdb.service';
 })
 export class MoviesListComponent implements OnInit {
 
-	moviesUpcomingList = [];
+	moviesList = [];
+	posterPath = 'http://image.tmdb.org/t/p/w500/';
 
   constructor(private tmdbService: TMDbService) { }
 
   getData() {
-  	this.tmdbService.getUpcoming()
+  	this.tmdbService.getNowPlaying()
   									.subscribe((data) => {
   										let moviesList = data.json().results;
-  										this.moviesUpcomingList.push(...moviesList);
+  										this.moviesList.push(...moviesList);
   									});
   }
 
   ngOnInit() {
   	this.getData();
+  	console.log(this.moviesList);
   }
 
 }

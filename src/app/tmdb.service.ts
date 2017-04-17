@@ -5,13 +5,13 @@ import { Http } from '@angular/http';
 export class TMDbService {
 
 	upcomingList = [];
-	upcomingLink = 'https://api.themoviedb.org/3/movie/upcoming?api_key=48b40155da6e1c749302058b3380da7a';
+	nowPlayingLink = 'https://api.themoviedb.org/3/movie/now_playing?api_key=48b40155da6e1c749302058b3380da7a';
 
 
   constructor(private http: Http) { }
 
-  getUpcoming() {
-  	return this.http.get(this.upcomingLink);
+  getNowPlaying() {
+  	return this.http.get(this.nowPlayingLink);
   }
 
 }
