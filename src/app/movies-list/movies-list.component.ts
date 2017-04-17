@@ -23,7 +23,7 @@ export class MoviesListComponent implements OnInit {
 
 
   showMore() {
-    this.tmdbService.getMore()
+    this.tmdbService.getMoreMovies()
                     .subscribe((data) => {
                       let moviesList = data.json().results;
                       this.moviesList.push(...moviesList);

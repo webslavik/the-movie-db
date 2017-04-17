@@ -1,24 +1,39 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnInit , OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
+import { TMDbService } from '../tmdb.service';
 
 
 @Component({
   selector: 'app-movie-info',
   templateUrl: './movie-info.component.html',
-  styleUrls: ['./movie-info.component.scss']
+  styleUrls: ['./movie-info.component.scss'],
+  providers: [TMDbService]
 })
-export class MovieInfoComponent implements OnDestroy {
+export class MovieInfoComponent implements OnInit, OnDestroy {
 
 	id: number;
 	subscription: Subscription;
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute, private tmdbService: TMDbService) {
 
   	this.subscription = activatedRoute.params.subscribe(params => this.id = params['id']);
   }
 
+  getInfo() {
+    this.tmdbService.getMovieInfo(this.id)
+                    .subscribe(
+                       data => {
+                         console.log(data.json());
+                       }
+                    )
+  }
+
   ngOnDestroy() {
   	this.subscription.unsubscribe();
+  }
+
+  ngOnInit() {
+    this.getInfo();
   }
 
 }
