@@ -19,7 +19,7 @@
               <span class="rating">{{ item.vote_average | percent | slice: 0:2 }}<span class="percentage">&#37;</span></span>
             </div>
           </div>
-          <p class="movie-description">{{ item.overview }}</p>
+          <p class="movie-description">{{ item.overview | cutDescription }}</p>
         </div>
         <div class="movie-button">
           <button class="btn">Подробнее</button>

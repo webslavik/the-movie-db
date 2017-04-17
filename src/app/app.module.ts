@@ -9,13 +9,15 @@ import { ThemeSwitchComponent } from './theme-switch/theme-switch.component';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 
 import { TMDbService }  from './tmdb.service';
+import { CutDescriptionPipe } from './cut-description.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     ThemeSwitchComponent,
-    MoviesListComponent
+    MoviesListComponent,
+    CutDescriptionPipe
   ],
   imports: [
     BrowserModule,
