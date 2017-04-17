@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ThemeSwitchComponent } from './theme-switch/theme-switch.component';
+import { MoviesListComponent } from './movies-list/movies-list.component';
 
 
 
@@ -13,7 +14,8 @@ import { ThemeSwitchComponent } from './theme-switch/theme-switch.component';
   declarations: [
     AppComponent,
     NavbarComponent,
-    ThemeSwitchComponent
+    ThemeSwitchComponent,
+    MoviesListComponent
   ],
   imports: [
     BrowserModule,
