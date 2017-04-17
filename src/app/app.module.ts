@@ -8,7 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ThemeSwitchComponent } from './theme-switch/theme-switch.component';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 
-
+import { TMDbService }  from './tmdb.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { MoviesListComponent } from './movies-list/movies-list.component';
     FormsModule,
     HttpModule,
   ],
-  providers: [],
+  providers: [TMDbService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
