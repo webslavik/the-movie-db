@@ -10,6 +10,7 @@ import { MoviesListComponent } from './movies-list/movies-list.component';
 
 import { TMDbService }  from './tmdb.service';
 import { CutDescriptionPipe } from './cut-description.pipe';
+import { MovieRatingPipe } from './movie-rating.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CutDescriptionPipe } from './cut-description.pipe';
     NavbarComponent,
     ThemeSwitchComponent,
     MoviesListComponent,
-    CutDescriptionPipe
+    CutDescriptionPipe,
+    MovieRatingPipe
   ],
   imports: [
     BrowserModule,
