@@ -21,7 +21,7 @@
           <p class="movie-description">{{ item.overview | cutDescription }}</p>
         </div>
         <div class="movie-button">
-          <button class="btn">Подробнее</button>
+          <button class="btn" [routerLink]="['movie-info', item.id]">Подробнее</button>
         </div>
       </div>
     </li>
