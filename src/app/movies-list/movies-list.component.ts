@@ -22,6 +22,16 @@ export class MoviesListComponent implements OnInit {
   									});
   }
 
+
+  showMore() {
+    this.tmdbService.getMore()
+                    .subscribe((data) => {
+                      let moviesList = data.json().results;
+                      this.moviesList.push(...moviesList);
+                      console.log(this.moviesList)
+                    });
+  }
+
   ngOnInit() {
   	this.getData();
   	console.log(this.moviesList);
