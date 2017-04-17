@@ -1,9 +1,7 @@
 <div class='movies-list-wrap'>
   <ul class="movies-list">
-    <li class='movie' *ngFor='let item of moviesList'>
-      <div class="movie-poster">
-        <img src="{{ posterPath }}{{ item.poster_path }}" alt="item.original_title">
-      </div>
+    <li class='movie-card' *ngFor='let item of moviesList'>
+      <div class="movie-poster" [ngStyle]="{'background-image': 'url(http://image.tmdb.org/t/p/w500/' + item.poster_path + ')'}"></div>
       <div class="movie-content">
         <div>
           <h2 class="movie-title">{{ item.original_title }}</h2>

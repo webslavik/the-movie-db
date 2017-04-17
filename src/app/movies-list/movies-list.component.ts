@@ -10,7 +10,6 @@ import { TMDbService } from '../tmdb.service';
 export class MoviesListComponent implements OnInit {
 
 	moviesList = [];
-	posterPath = 'http://image.tmdb.org/t/p/w500/';
 
   constructor(private tmdbService: TMDbService) { }
 

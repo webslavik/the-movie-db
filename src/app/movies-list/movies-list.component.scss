@@ -23,7 +23,7 @@
 }
 
 //------------------------------
-.movie {
+.movie-card {
   display: flex;
   max-width: 480px;
   height: 280px;
@@ -31,11 +31,16 @@
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   border-radius: 5px;
   overflow: hidden;
+  transition: all 200ms ease-in-out;
 }
 
 //------------------------------
 .movie-poster {
   width: percentage(187px / 480px);
+  background-color: rgba($black, .5);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 //------------------------------
