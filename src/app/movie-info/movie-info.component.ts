@@ -41,23 +41,15 @@ export class MovieInfoComponent implements OnInit, OnDestroy {
                      let director = [];
                      let screenplay = [];
 
-                     data.json().crew.filter(entry => {
+                     data.json().crew.forEach(entry => {
                        if (entry.job === 'Director') {
                          director.push(entry.name);
-                       }
-                     });
-
-                     data.json().crew.filter(entry => {
-                       if (entry.job === 'Screenplay') {
+                       } else if (entry.job === 'Screenplay' || entry.job === 'Writer') {
                          screenplay.push(entry.name);
                        }
                      });
 
-                    data.json().crew.filter(entry => {
-                       if (entry.job === 'Writer') {
-                         screenplay.push(entry.name);
-                       }
-                     });
+
 
                      this.director = director.join(', ');
                      this.screenplay = screenplay.join(', ');

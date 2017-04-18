@@ -32,7 +32,7 @@
         </li>
         <li>
           <div class='character'>Studio:</div>
-          <span class='anything' *ngFor='let studio of movie.production_companies'>{{ studio.name }}</span>
+          <span class='anything' *ngFor='let studio of movie.production_companies'>{{ studio.name }}, </span>
         </li>
         <li *ngIf='movie.budget'>
           <div class='character'>Budget:</div>
