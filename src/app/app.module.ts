@@ -15,6 +15,7 @@ import { MovieInfoComponent } from './movie-info/movie-info.component';
 import { TMDbService }  from './tmdb.service';
 import { CutDescriptionPipe } from './cut-description.pipe';
 import { MovieRatingPipe } from './movie-rating.pipe';
+import { MoneyPipe } from './money.pipe';
 
 
 const appRoutes: Routes = [
@@ -36,6 +37,7 @@ const appRoutes: Routes = [
     MovieInfoComponent,
     HomeComponent,
     AboutComponent,
+    MoneyPipe,
   ],
   imports: [
     BrowserModule,
