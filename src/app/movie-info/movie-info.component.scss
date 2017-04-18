@@ -70,17 +70,20 @@
 //------------------------------
 .movie-info {
 	width: 520px;
-	padding-top: 40px;
 	z-index: 5;
 }
 
+
 .movie-title {
+	height: 200px;
+	padding-top: 40px;
 	font-weight: 500;
 
 	.title {
 		margin-bottom: 8px;
 		font-size: rem(34);
 		color: $white;
+		font-weight: 500;
 	}
 
 	.tagline {
@@ -94,6 +97,7 @@
 	justify-content: space-between;
 	align-items: flex-end;
 	margin-bottom: 24px;
+	padding-top: 20px;
 
 	.date,
 	.genres {
@@ -139,8 +143,19 @@
 		font-weight: 500;
 	}
 
-	.anything {
+	.anything,
+	.budget {
 		font-size: rem(20);
-		font-weight: 700;
+		font-weight: 500;
+	}
+
+	.budget {
+		color: $primary;
+	}
+
+	.revenue {
+		font-size: rem(22);
+		font-weight: 500;
+		color: $primary;
 	}
 }

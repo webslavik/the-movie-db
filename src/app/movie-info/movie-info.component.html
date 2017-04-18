@@ -35,8 +35,12 @@
           <span class='anything' *ngFor='let studio of movie.production_companies'>{{ studio.name }}</span>
         </li>
         <li>
+          <div class='character'>Budget:</div>
+          <div class='budget'><span>&#36;</span>{{ movie.budget }}</div>
+        </li>
+        <li>
           <div class='character'>Box Office:</div>
-          <div class='anything'>{{ movie.revenue }}</div>
+          <div class='revenue'><span>&#36;</span>{{ movie.revenue }}</div>
         </li>
       </ul>
     </div>
