@@ -13,7 +13,10 @@ import { TMDbService } from '../tmdb.service';
 export class MovieInfoComponent implements OnInit, OnDestroy {
 
 	id: number;
+  movie = [];
 	subscription: Subscription;
+
+
   constructor(private activatedRoute: ActivatedRoute, private tmdbService: TMDbService) {
 
   	this.subscription = activatedRoute.params.subscribe(params => this.id = params['id']);
@@ -23,6 +26,7 @@ export class MovieInfoComponent implements OnInit, OnDestroy {
     this.tmdbService.getMovieInfo(this.id)
                     .subscribe(
                        data => {
+                         this.movie = data.json();
                          console.log(data.json());
                        }
                     )
