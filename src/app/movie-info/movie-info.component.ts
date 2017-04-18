@@ -27,8 +27,6 @@ export class MovieInfoComponent implements OnInit, OnDestroy {
                     .subscribe(
                        data => {
                          this.movie = data.json();
-                         // console.log(data.json());
-                         console.log(typeof this.movie['budget']);
                        }
                     )
   }
@@ -39,10 +37,6 @@ export class MovieInfoComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getInfo();
-
-    // let test = '25034512';
-    // let result = test.split( /(?=(?:\d{3})+(?!\d))/ ).join(',');
-    // console.log(result);
   }
 
 }

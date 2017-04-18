@@ -24,21 +24,21 @@
       <ul class="movie-other">
         <li>
           <div class='character'>Directed By:</div>
-          <div class='anything'>Peter Jackson</div>
+          <div class='anything'>...</div>
         </li>
         <li>
           <div class='character'>Written By:</div>
-          <div class='anything'>Philippa Boyens, Guillermo del Toro, Fran Walsh</div>
+          <div class='anything'>...</div>
         </li>
         <li>
           <div class='character'>Studio:</div>
           <span class='anything' *ngFor='let studio of movie.production_companies'>{{ studio.name }}</span>
         </li>
-        <li>
+        <li *ngIf='movie.budget'>
           <div class='character'>Budget:</div>
           <div class='budget'><span>&#36;</span>{{ movie.budget | money }}</div>
         </li>
-        <li>
+        <li *ngIf='movie.revenue'>
           <div class='character'>Box Office:</div>
           <div class='revenue'><span>&#36;</span>{{ movie.revenue | money }}</div>
         </li>
