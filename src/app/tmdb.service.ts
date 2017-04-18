@@ -22,4 +22,9 @@ export class TMDbService {
     return this.http.get(`https://api.themoviedb.org/3/movie/${id}?api_key=48b40155da6e1c749302058b3380da7a`);
   }
 
+  getCredits(credits) {
+    return this.http.get(`https://api.themoviedb.org/3/movie/${credits}/credits?api_key=48b40155da6e1c749302058b3380da7a`);
+    // return this.http.get(`https://api.themoviedb.org/3/movie/120/credits?api_key=48b40155da6e1c749302058b3380da7a`); 
+  }
+
 }

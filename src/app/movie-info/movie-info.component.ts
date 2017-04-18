@@ -14,6 +14,8 @@ export class MovieInfoComponent implements OnInit, OnDestroy {
 
 	id: number;
   movie = [];
+  director: string;
+  screenplay: string;
 	subscription: Subscription;
 
 
@@ -27,8 +29,40 @@ export class MovieInfoComponent implements OnInit, OnDestroy {
                     .subscribe(
                        data => {
                          this.movie = data.json();
+                         console.log(this.movie);
                        }
                     )
+  }
+
+  getCrew() {
+    this.tmdbService.getCredits(this.id)
+                .subscribe(
+                   data => {
+                     let director = [];
+                     let screenplay = [];
+
+                     data.json().crew.filter(entry => {
+                       if (entry.job === 'Director') {
+                         director.push(entry.name);
+                       }
+                     });
+
+                     data.json().crew.filter(entry => {
+                       if (entry.job === 'Screenplay') {
+                         screenplay.push(entry.name);
+                       }
+                     });
+
+                    data.json().crew.filter(entry => {
+                       if (entry.job === 'Writer') {
+                         screenplay.push(entry.name);
+                       }
+                     });
+
+                     this.director = director.join(', ');
+                     this.screenplay = screenplay.join(', ');
+                   }
+                )
   }
 
   ngOnDestroy() {
@@ -37,6 +71,7 @@ export class MovieInfoComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getInfo();
+    this.getCrew();
   }
 
 }
