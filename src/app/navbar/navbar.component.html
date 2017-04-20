@@ -23,12 +23,10 @@
 			<path d="M3282.58,1820.18a3.68,3.68,0,0,0,1.39-3,4.13,4.13,0,0,0-4.26-4.56h-5.94v15h5.94a4.46,4.46,0,0,0,4.43-4.51A3.65,3.65,0,0,0,3282.58,1820.18Zm-5.79-4.51h2.67a1.52,1.52,0,0,1,0,3h-2.67v-3Zm2.67,9h-2.67v-3h2.67a1.47,1.47,0,0,1,1.51,1.49A1.49,1.49,0,0,1,3279.45,1824.7Z" transform="translate(-3111.93 -1774.68)"/>
 		</svg>
 	</a>
-	
 	<div class="search">
 		<svg id='search-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52.966 52.966"><path d="M51.704 51.273L36.844 35.82c3.79-3.8 6.14-9.04 6.14-14.82 0-11.58-9.42-21-21-21s-21 9.42-21 21 9.42 21 21 21c5.082 0 9.747-1.817 13.383-4.832l14.895 15.49a.998.998 0 0 0 1.414.028 1 1 0 0 0 .028-1.413zM21.984 40c-10.478 0-19-8.523-19-19s8.522-19 19-19 19 8.523 19 19-8.525 19-19 19z"/></svg>
 		<input placeholder="Поиск..." />
 	</div>
-
 	<div class="navbar-navigation">
 		<ul>
 			<li>
@@ -36,7 +34,7 @@
 			</li>
 		</ul>
 		<div class="theme-switch">
-			<button class="theme-switch-button" (click)='onShowThemes()'>
+			<button class="theme-switch-button" (click)='onSwitchThemes()'>
 				<svg id='theme-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26.6 27.7">
 					<path class='theme-chooser-bucket' d="M9 3.7c-5.1 0-9 3.1-9 7V24c0 2 3 3.7 9 3.7 5.9 0 9-1.7 9-3.7V10.7c0-3.9-3.9-7-9-7zm0 1c4.3 0 7.7 2.4 7.9 5.6-1.5-1-4.5-1.6-8-1.6s-6.5.7-8 1.6C1.3 7.1 4.7 4.7 9 4.7zm.1 8.8c-2.1 0-6.5-.4-6.5-1.4s4-1.4 6.5-1.4c2.6 0 6.5.4 6.5 1.4s-4.4 1.4-6.5 1.4zM9 25.7c-5.4 0-7-1.5-7-1.7v-9.5c1.5.8 4.5 1.2 7 1.2 2.4 0 5.5-.4 7-1.2V24c-.1.2-1.6 1.7-7 1.7zm6-3.2C13 24 5 24 3 22.5v-5.6c3 1.2 9 1.2 12 0v5.6z"/>
 					<circle class='theme-chooser-paint' cx="22.6" cy="4" r="4"/>
@@ -44,7 +42,29 @@
 			</button>
 		</div>
 	</div>
-
 </div>
 
-<app-theme-switch [(showThemes)]='showThemes'></app-theme-switch>
+<div class="theme-choose" [ngClass]='{"is-show": switchTheme}' (click)='onSwitchThemes()'>
+  <div class="theme-sheet">
+    <ul class="theme-colors-list">
+      <li *ngFor='let item of themeData' class="theme-color-item" [ngClass]='{"is-active": switchTheme}'>
+        <button class="theme-color" [ngClass]='{"is-show": switchTheme, "is-hide": !switchTheme}' (click)='changeTheme()' >
+          <span class="theme-color-background" [ngClass]="item.color"></span>
+          <span class="theme-color-icon-container">
+						<span class="theme-color-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9 22l-10-10.598 2.798-2.859 7.149 7.473 13.144-14.016 2.909 2.806z"/></svg>
+						</span>
+          </span>
+        </button>
+      </li>
+    </ul>
+    <div class="theme-sheet-background" [ngClass]='{"is-show": switchTheme, "is-hide": !switchTheme}'></div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- <app-theme-switch [(showThemes)]='showThemes'></app-theme-switch> -->
