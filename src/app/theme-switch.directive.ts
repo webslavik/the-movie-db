@@ -1,4 +1,4 @@
-import { Directive, Input, AfterViewInit, ElementRef, Renderer2} from '@angular/core';
+import { Directive, Output, EventEmitter, AfterViewInit, ElementRef} from '@angular/core';
 
 @Directive({
   selector: '[theme-switch]',
@@ -8,10 +8,12 @@ import { Directive, Input, AfterViewInit, ElementRef, Renderer2} from '@angular/
 })
 export class ThemeSwitchDirective implements AfterViewInit {
 
+  @Output() onHide = new EventEmitter();
+
 	body = document.querySelector('body');
   elem;
 
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
+  constructor(private el: ElementRef) {}
 
   onClick() {
     const parent = this.elem.parentElement;
@@ -27,11 +29,26 @@ export class ThemeSwitchDirective implements AfterViewInit {
     this.body.className = '';
     this.body.classList.add(theme);
 
-    this.elem.classList.add('is-active');
+    this.elem.classList.add('is-selected');
+
+    setTimeout(() => {
+      this.hideThemeSwitch();
+      this.elem.classList.remove('is-selected');
+    }, 700);
+
+    setTimeout(() => {
+      this.elem.classList.add('is-active');
+    }, 900);
+
+  }
+
+  hideThemeSwitch() {
+    this.onHide.emit();
   }
 
   ngAfterViewInit() {
     this.elem = this.el.nativeElement;
+    // this.elem.parentElement.children[1].classList.add('is-selected');
   }
 
 }

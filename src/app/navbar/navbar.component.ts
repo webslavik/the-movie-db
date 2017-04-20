@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,  OnInit } from '@angular/core';
 
 
 @Component({
@@ -21,7 +21,6 @@ export class NavbarComponent implements OnInit {
 
 	onSwitchThemes() {
 		this.switchTheme = !this.switchTheme;
-		// console.log(this.switchTheme);
 	}
 
 	onStop(event) {
