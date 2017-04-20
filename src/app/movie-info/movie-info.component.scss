@@ -1,11 +1,11 @@
-@import '../../sass/utilites/functions';
-@import '../../sass/utilites/vars';
+@import '../../sass/utilites/index';
 
 
 .movie-info-wrap {
 	display: flex;
 	justify-content: center;
 	padding-top: 32px;
+  padding-bottom: 40px;
 }
 
 //------------------------------

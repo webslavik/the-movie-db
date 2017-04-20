@@ -1,0 +1,27 @@
+.t-black {
+	background-color: $black;
+	color: $white;
+	
+	.navbar {
+		background-color: $black;
+		border-bottom-color: #616161;
+	}
+
+	.logo {
+		fill: $white;
+	}
+	
+	
+	.theme-chooser-bucket {
+		fill: $white;
+	}
+
+	.theme-chooser-paint {
+		fill: $white;
+		opacity: .6;
+	}
+
+	.search-icon {
+		fill: $white;
+	}
+}

@@ -1,0 +1,25 @@
+.t-purple {
+	background-color: $purple;
+	color: $white;
+	
+	.navbar {
+		background-color: $white;
+	}
+
+	.logo {
+		fill: rgba($black, .55);
+	}
+	
+	
+	.theme-chooser-bucket {
+		fill: rgba(black, 0.60);
+	}
+
+	.theme-chooser-paint {
+		fill: lighten($purple, 10%);
+	}
+
+	.search-icon {
+		fill: rgba($black, .70);
+	}
+}

@@ -1,4 +1,4 @@
-@import '../../sass/utilites/vars';
+@import '../../sass/utilites/index';
 
 
 .movies-list-wrap {
@@ -9,8 +9,8 @@
 .movies-list {
   display: flex;
   flex-wrap: wrap;
-  padding-top: 32px;
   max-width: 1520px;
+  padding-top: 32px;
 
   li {
   	margin-right: 40px;

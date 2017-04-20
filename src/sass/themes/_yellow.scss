@@ -1,0 +1,24 @@
+.t-yellow {
+	background-color: $yellow;
+	color: $black;
+	
+	.navbar {
+		background-color: $black;
+	}
+
+	.logo {
+		fill: $white;
+	}
+	
+	.theme-chooser-bucket {
+		fill: $white;
+	}
+
+	.theme-chooser-paint {
+		fill: $yellow;
+	}
+
+	.search-icon {
+		fill: $white;
+	}
+}

@@ -1,5 +1,4 @@
-@import '../../sass/utilites/vars';
-
+@import '../../sass/utilites/index';
 
 
 .navbar {
@@ -17,7 +16,7 @@
 
 //  LOGO
 //-------------------------------------------------
-.navbar-logo {
+.logo {
 	max-width: 121px;
 	width: 100%;
 }
@@ -40,12 +39,10 @@
 	}
 }
 
-#search-icon {
+.search-icon {
 	width: 20px;
 	height: 20px;
 	margin-right: 8px;
-	fill: rgba($black, .70);
-
 	position: relative;
 	top: -1px;
 }

@@ -1,3 +1,5 @@
+// Translate px to rem
+//-------------------------------------------------
 $baseFontSize : 16;
 @function rem($pixels, $context: $baseFontSize) {
   @if (unitless($pixels)) {
