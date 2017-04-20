@@ -11,21 +11,21 @@ export class NavbarComponent implements OnInit {
 	switchTheme: boolean = false;
 
 	themeData = [
-		{ color: 'black', theme: 't-black', deg: 90 },
-		{ color: 'white', theme: 't-white', deg: 0 },
-		{ color: 'yellow', theme: 't-yellow', deg: 180 },
-		{ color: 'purple', theme: 't-purple', deg: -90 }
+		{ color: 'black', theme: 't-black', deg: 90, num: 1 },
+		{ color: 'white', theme: 't-white', deg: 0, num: 2 },
+		{ color: 'yellow', theme: 't-yellow', deg: 180, num: 3 },
+		{ color: 'purple', theme: 't-purple', deg: -90, num: 4 }
 	];
 
 	constructor() {}
 
 	onSwitchThemes() {
 		this.switchTheme = !this.switchTheme;
-		console.log(this.switchTheme);
+		// console.log(this.switchTheme);
 	}
 
-	changeTheme() {
-		
+	onStop(event) {
+		event.stopPropagation();
 	}
 
 	ngOnInit() {

@@ -45,16 +45,17 @@
 </div>
 
 <div class="theme-choose" [ngClass]='{"is-show": switchTheme}' (click)='onSwitchThemes()'>
-  <div class="theme-sheet">
+  <div class="theme-sheet" (click)='onStop($event)'>
     <ul class="theme-colors-list">
-      <li *ngFor='let item of themeData' class="theme-color-item" [ngClass]='{"is-active": switchTheme}'>
-        <button class="theme-color" [ngClass]='{"is-show": switchTheme, "is-hide": !switchTheme}' (click)='changeTheme()' >
+      <li *ngFor='let item of themeData' class="theme-color-item" theme-switch
+      		[attr.data-theme]='item.theme' [attr.data-rotate]='item.deg'>
+        <button class="theme-color" [ngClass]='{"is-show": switchTheme, "is-hide": !switchTheme}'>
           <span class="theme-color-background" [ngClass]="item.color"></span>
-          <span class="theme-color-icon-container">
+         <!--  <span class="theme-color-icon-container">
 						<span class="theme-color-icon">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9 22l-10-10.598 2.798-2.859 7.149 7.473 13.144-14.016 2.909 2.806z"/></svg>
 						</span>
-          </span>
+          </span> -->
         </button>
       </li>
     </ul>

@@ -145,7 +145,6 @@
 	right: 64px;
 	z-index: 10;
 	padding: 8px;
-	// background-color: tomato
 }
 
 
@@ -191,9 +190,13 @@
 .theme-color-item {
 
 	&.is-active {
-		.theme-color-icon-container {
-			display: flex;
+		.theme-color-background {
+			border-color: $primary;
+			border-width: 2px;
 		}
+		// .theme-color-icon-container {
+		// 	display: flex;
+		// }
 	}
 }
 
@@ -229,7 +232,7 @@
 	display: inline-block;
 	width: 36px;
 	height: 36px;
-	border: 1px solid;
+	border: 2px solid;
 	border-radius: 50%;
 	position: absolute;
 	top: calc(50% - 18px);
@@ -253,11 +256,6 @@
 	&.purple {
 		background-color: $purple;
 		border-color: $purple;
-	}
-
-	&.is-select {
-		border-color: $primary;
-		border-width: 2px;
 	}
 }
 

@@ -33,7 +33,6 @@ export class MoviesListComponent implements OnInit {
 
   ngOnInit() {
   	this.getData();
-  	console.log(this.moviesList);
   }
 
 }

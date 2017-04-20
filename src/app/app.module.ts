@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { ThemeSwitchComponent } from './theme-switch/theme-switch.component';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { MovieInfoComponent } from './movie-info/movie-info.component';
 
@@ -16,6 +15,8 @@ import { TMDbService }  from './tmdb.service';
 import { CutDescriptionPipe } from './cut-description.pipe';
 import { MovieRatingPipe } from './movie-rating.pipe';
 import { MoneyPipe } from './money.pipe';
+
+import { ThemeSwitchDirective } from './theme-switch.directive';
 
 
 const appRoutes: Routes = [
@@ -30,7 +31,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     NavbarComponent,
-    ThemeSwitchComponent,
     MoviesListComponent,
     CutDescriptionPipe,
     MovieRatingPipe,
@@ -38,6 +38,7 @@ const appRoutes: Routes = [
     HomeComponent,
     AboutComponent,
     MoneyPipe,
+    ThemeSwitchDirective,
   ],
   imports: [
     BrowserModule,
