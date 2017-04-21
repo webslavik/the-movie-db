@@ -17,6 +17,7 @@ import { MovieRatingPipe } from './movie-rating.pipe';
 import { MoneyPipe } from './money.pipe';
 
 import { ThemeSwitchDirective } from './theme-switch.directive';
+import { TypeaheadDirective } from './typeahead.directive';
 
 
 const appRoutes: Routes = [
@@ -39,6 +40,7 @@ const appRoutes: Routes = [
     AboutComponent,
     MoneyPipe,
     ThemeSwitchDirective,
+    TypeaheadDirective,
   ],
   imports: [
     BrowserModule,
