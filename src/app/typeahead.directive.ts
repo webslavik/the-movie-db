@@ -13,7 +13,11 @@ export class TypeaheadDirective implements AfterViewInit {
 
 	ngAfterViewInit() {
 
-		$(this.el.nativeElement).typeahead(null, {
+		$(this.el.nativeElement).typeahead({
+				minLength: 2,
+			  highlight: true
+			},
+			{
 			name: 'picture',
 			limit: 10,
 			source: function(query, suncResults, asyncResults) {
@@ -24,7 +28,12 @@ export class TypeaheadDirective implements AfterViewInit {
 			},
 			templates: {
 				suggestion: function(data) {
-					return `<h2>${data.original_title}</h2>`;
+					return `
+						<div>
+							<div class='suggest-img' style='background-image: url(http://image.tmdb.org/t/p/w92/${data.poster_path})'></div>
+							<div class='suggest-title'>${data.original_title}</div>
+						</div>
+					`;
 				}
 			}
 		});
