@@ -9,12 +9,13 @@ import { Component,  OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
 
 	switchTheme: boolean = false;
+	searchMovie;
 
 	themeData = [
-		{ color: 'black', theme: 't-black', deg: 90, num: 1 },
-		{ color: 'white', theme: 't-white', deg: 0, num: 2 },
-		{ color: 'yellow', theme: 't-yellow', deg: 180, num: 3 },
-		{ color: 'purple', theme: 't-purple', deg: -90, num: 4 }
+		{ color: 'black', theme: 't-black', deg: 90},
+		{ color: 'white', theme: 't-white', deg: 0},
+		{ color: 'yellow', theme: 't-yellow', deg: 180},
+		{ color: 'purple', theme: 't-purple', deg: -90}
 	];
 
 	constructor() {}
@@ -25,6 +26,10 @@ export class NavbarComponent implements OnInit {
 
 	onStop(event) {
 		event.stopPropagation();
+	}
+
+	onShowMovie(movieId) {
+		console.log(movieId);
 	}
 
 	ngOnInit() {

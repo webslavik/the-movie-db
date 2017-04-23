@@ -1,4 +1,4 @@
-import { Directive, ElementRef, AfterViewInit } from '@angular/core';
+import { Directive, ElementRef, AfterViewInit, Output, EventEmitter } from '@angular/core';
 
 import * as $ from 'jquery';
 import 'typeahead.js';
@@ -8,8 +8,9 @@ import 'typeahead.js';
 })
 export class TypeaheadDirective implements AfterViewInit {
 
-	constructor(private el: ElementRef) { }
+	@Output() showMovie = new EventEmitter<any>();
 
+	constructor(private el: ElementRef) { }
 
 	ngAfterViewInit() {
 
@@ -18,15 +19,21 @@ export class TypeaheadDirective implements AfterViewInit {
 			  highlight: true
 			},
 			{
-			name: 'picture',
 			limit: 10,
 			source: function(query, suncResults, asyncResults) {
-				$.get(`https://api.themoviedb.org/3/search/movie?api_key=48b40155da6e1c749302058b3380da7a&query=${query}`, function(data) {
-					console.log(data.results);
+				const url = 'https://api.themoviedb.org/3/search/movie?api_key=48b40155da6e1c749302058b3380da7a&query=';
+
+				$.get(url + query, function(data) {
+					// console.log(data.results);
 					asyncResults(data.results);
 				});
 			},
 			templates: {
+				empty: [
+		      '<div class="empty-message">',
+		        'unable to find any Best Picture winners that match the current query',
+		      '</div>'
+		    ].join('\n'),
 				suggestion: function(data) {
 					return `
 						<div>
@@ -36,8 +43,16 @@ export class TypeaheadDirective implements AfterViewInit {
 					`;
 				}
 			}
+		}).bind("typeahead:select", function (event, datum) {
+
+			// console.log(datum.id);
+			this.getId(datum.id);
 		});
 
-
 	}
+
+	getId(movieId) {
+		this.showMovie.emit(movieId);
+	}
+
 }
