@@ -5,6 +5,8 @@
 	display: flex;
 	justify-content: center;
 	padding-top: 32px;
+	padding-left: 12px;
+	padding-right: 12px;
   padding-bottom: 40px;
 }
 
@@ -23,6 +25,24 @@
 	overflow: hidden;
 
 	position: relative;
+
+}
+
+@include breakpoint($tablet) {
+	.movie {
+		justify-content: space-around;
+		padding-top: 80px;
+		padding-left: 32px;
+		padding-right: 32px;
+	}
+}
+
+@include breakpoint($mobile) {
+	.movie {
+		padding-top: 0;
+		padding-left: 16px;
+		padding-right: 16px;
+	}
 
 }
 
@@ -53,6 +73,14 @@
 	}
 }
 
+@include breakpoint($tablet) {
+	.movie-backdrop {
+		height: 264px;
+	}
+}
+
+
+
 //------------------------------
 .movie-poster {
 	width: 224px;
@@ -67,9 +95,28 @@
 	z-index: 5;
 }
 
+@include breakpoint($tablet) {
+	.movie-poster {
+		min-width: 206px;
+		min-height: 284px;
+		width: 206px;
+		height: 284px;
+		margin-right: 32px;
+	}
+}
+
+@include breakpoint($mobile) {
+	.movie-poster {
+		display: none;
+	}
+}
+
+
+
 //------------------------------
 .movie-info {
-	width: 520px;
+	max-width: 520px;
+	width: 100%;
 	z-index: 5;
 }
 
@@ -91,6 +138,27 @@
 		color: rgba($white, .85);	
 	}
 }
+
+@include breakpoint($tablet) {
+	.movie-title {
+		height: 184px;
+	}
+}
+
+@include breakpoint($mobile) {
+	.movie-title {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 264px;
+		padding-top: 0px;
+		padding-left: 24px;
+		padding-right: 24px;
+		text-align: center;
+	}
+}
+
 
 .movie-feature {
 	display: flex;
@@ -122,6 +190,33 @@
 	  }
 	}
 }
+
+@include breakpoint($mobile) {
+	.movie-feature {
+		flex-wrap: wrap;
+
+		.date,
+		.rating {
+			width: 50%;
+			order: 1;
+		}
+
+		.date {
+			margin-bottom: 8px;
+		}
+
+		.rating {
+			display: flex;
+			justify-content: flex-end;
+		}
+
+		.genres {
+			min-width: 100%;
+			order: 2;
+		}
+	}
+}
+
 
 .movie-description {
 	margin-bottom: 24px;
