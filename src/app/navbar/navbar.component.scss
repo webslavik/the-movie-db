@@ -14,29 +14,43 @@
 }
 
 
+@include breakpoint($desktop) {
+	.navbar {
+		padding-left: 32px;
+		padding-right: 32px;
+	}
+}
+
+@include breakpoint($tablet) {
+	.navbar {
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+}
+
+
+
+
 //  LOGO
 //-------------------------------------------------
 .logo {
-	max-width: 121px;
-	width: 100%;
+	width: 121px;
+	min-width: 121px;
+	margin-right: 96px;
 }
+
+
 
 
 //  SEARCH
 //-------------------------------------------------
 .search {
-	flex-grow: 2;
 	display: flex;
 	align-items: center;
-	max-width: 724px;
-	position: relative;
-
-	input {
-		width: 700px;
-		border: none;
-		padding: 5px;
-		font-size: 16px;
-	}
+	// max-width: 720px;
+	// min-width: 700px;
+	width: 100%;
+	background-color: green;
 }
 
 .search-icon {
@@ -45,20 +59,6 @@
 	margin-right: 8px;
 	position: relative;
 	top: -1px;
-}
-
-.search-suggestions {
-	// width: 100%;
-	position: absolute;
-	top: calc(100% + 8px);
-	left: 0;
-	right: 0;
-	background-color: $white;
-
-	li {
-		font-size: 16px;
-		padding: 8px;
-	}
 }
 
 

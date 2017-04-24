@@ -3,6 +3,12 @@
 $main-font: "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
 
 
+// Breakpoint
+$wide: 1601px 1920px; 
+$desktop: max-width 1600px;
+$tablet: max-width 1024px;
+$mobile: max-width 767px;
+
 // Colors
 $primary: #FF5252;
 
