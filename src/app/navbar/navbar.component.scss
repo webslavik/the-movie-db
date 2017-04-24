@@ -28,18 +28,46 @@
 	}
 }
 
+@include breakpoint($mobile) {
+	.navbar {
+		align-items: flex-start;
+		flex-wrap: wrap;
+		height: 104px;
+		padding-top: 8px;
+		padding-left: 12px;
+		padding-right: 12px;
+	}
 
+	.logo {
+		order: 1;
+	}
+
+	.navbar-navigation {
+		order: 1;
+	}
+
+	.search {
+		order: 2;
+	}
+
+}
 
 
 //  LOGO
 //-------------------------------------------------
 .logo {
+	float: left;
+	display: block;
 	width: 121px;
 	min-width: 121px;
-	margin-right: 96px;
+	margin-right: 64px;
 }
 
-
+@include breakpoint($tablet) {
+	.logo {
+		margin-right: 40px;
+	}
+}
 
 
 //  SEARCH
@@ -47,10 +75,8 @@
 .search {
 	display: flex;
 	align-items: center;
-	// max-width: 720px;
-	// min-width: 700px;
+	max-width: 700px;
 	width: 100%;
-	background-color: green;
 }
 
 .search-icon {
@@ -62,14 +88,31 @@
 }
 
 
+@include breakpoint(max-width 1150px) {
+	.search {
+		max-width: 580px;
+	}
+}
+
+@include breakpoint($tablet) {
+	.search {
+		margin-right: 40px;
+	}
+}
+
+@include breakpoint($mobile) {
+	.search {
+		min-width: 100%;
+	}
+}
+
+
 //  NAVIGATION
 //-------------------------------------------------
 .navbar-navigation {
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-	// max-width: 400px;
-	// width: 100%;
 
 	ul {
 		display: flex;
@@ -89,6 +132,13 @@
 	}
 }
 
+@include breakpoint($tablet) {
+	.navbar-navigation {
+		ul {
+			display: none;
+		}
+	}
+}
 
 
 //  THEME
@@ -142,6 +192,24 @@
 	right: 64px;
 	z-index: 10;
 	padding: 8px;
+}
+
+@include breakpoint($desktop) {
+	.theme-sheet {
+		right: 32px;
+	}
+}
+
+@include breakpoint($tablet) {
+	.theme-sheet {
+		right: 16px;
+	}
+}
+
+@include breakpoint($mobile) {
+	.theme-sheet {
+		right: 12px;
+	}
 }
 
 
