@@ -1,4 +1,7 @@
-import { Component,  OnInit } from '@angular/core';
+import { Component,  OnInit, ViewChild } from '@angular/core';
+
+import * as $ from 'jquery';
+import 'typeahead.js';
 
 
 @Component({
@@ -8,8 +11,9 @@ import { Component,  OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+	@ViewChild('typeahead') input;
+
 	switchTheme: boolean = false;
-	searchMovie;
 
 	themeData = [
 		{ color: 'black', theme: 't-black', deg: 90},
@@ -28,11 +32,41 @@ export class NavbarComponent implements OnInit {
 		event.stopPropagation();
 	}
 
-	onShowMovie(movieId) {
-		console.log(movieId);
-	}
-
 	ngOnInit() {
+		$(this.input.nativeElement).typeahead({
+				minLength: 2,
+			  highlight: true
+			},
+			{
+			limit: 10,
+			source: function(query, suncResults, asyncResults) {
+				const url = 'https://api.themoviedb.org/3/search/movie?api_key=48b40155da6e1c749302058b3380da7a&query=';
+
+				$.get(url + query, function(data) {
+					// console.log(data.results);
+					asyncResults(data.results);
+				});
+			},
+			templates: {
+				empty: [
+		      '<div class="empty-message">',
+		        'unable to find any Best Picture winners that match the current query',
+		      '</div>'
+		    ].join('\n'),
+				suggestion: function(data) {
+					return `
+						<div>
+							<div class='suggest-img' style='background-image: url(http://image.tmdb.org/t/p/w92/${data.poster_path})'></div>
+							<div class='suggest-title'>${data.original_title}</div>
+						</div>
+					`;
+				}
+			}
+		}).bind("typeahead:select", function (event, datum) {
+
+			console.log(datum.id);
+		});
+
 	}
 
 }
