@@ -1,7 +1,7 @@
 import { Component, OnInit , OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
-import { TMDbService } from '../tmdb.service';
+import { TMDbService } from '../shared/tmdb.service';
 
 
 @Component({
