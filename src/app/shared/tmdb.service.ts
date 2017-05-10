@@ -9,7 +9,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class TMDbService {
 
-	nowPlayingLink: string = 'https://api.1themoviedb.org/3/movie/now_playing?api_key=48b40155da6e1c749302058b3380da7a&page=1';
+	nowPlayingLink: string = 'https://api.themoviedb.org/3/movie/now_playing?api_key=48b40155da6e1c749302058b3380da7a&page=1';
 	pages: number = 1;
 
 	constructor(private http: Http) { }
@@ -29,11 +29,33 @@ export class TMDbService {
 	}
 
 	getMovieInfo(id) {
-		return this.http.get(`https://api.themoviedb.org/3/movie/${id}?api_key=48b40155da6e1c749302058b3380da7a`);
+		return this.http.get(`https://api.themoviedb.org/3/movie/${id}?api_key=48b40155da6e1c749302058b3380da7a`)
+							 .map(response => {
+									let movie = response.json();
+									return movie;
+							 })
+							 .catch(this.handleError);
 	}
 
 	getCredits(credits) {
-		return this.http.get(`https://api.themoviedb.org/3/movie/${credits}/credits?api_key=48b40155da6e1c749302058b3380da7a`);
+		return this.http.get(`https://api.themoviedb.org/3/movie/${credits}/credits?api_key=48b40155da6e1c749302058b3380da7a`)
+							 .map(response => {
+									let credits = {
+										'director': [],
+										'screenplay': [],
+									}
+
+									response.json().crew.forEach(entry => {
+										if (entry.job === 'Director') {
+											credits.director.push(entry.name);
+										} else if (entry.job === 'Screenplay' || entry.job === 'Writer') {
+											credits.screenplay.push(entry.name);
+										}
+									});
+
+									return credits;
+							 })
+							 .catch(this.handleError);
 	}
 
 	private handleError(error: any) {

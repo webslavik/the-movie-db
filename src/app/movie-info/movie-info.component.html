@@ -1,4 +1,4 @@
-<div class='movie-info-wrap'>
+<div *ngIf='!error' class='movie-info-wrap'>
   <div class='movie'>
     <div class='movie-backdrop' [ngStyle]="{'background-image': 'url(http://image.tmdb.org/t/p/w500/' + movie.backdrop_path + ')'}"></div>
     <div class="movie-poster" [ngStyle]="{'background-image': 'url(http://image.tmdb.org/t/p/w342/' + movie.poster_path + ')'}"></div>
@@ -45,4 +45,10 @@
       </ul>
     </div>
   </div>
+</div>
+
+
+<div *ngIf='error' class='error'>
+  <div class='error-emoji'>。。。ミヽ(。＞＜)ノ</div>
+  <div class='error-text'>Opps, something happening...</div>
 </div>

@@ -5,64 +5,57 @@ import { TMDbService } from '../shared/tmdb.service';
 
 
 @Component({
-  selector: 'app-movie-info',
-  templateUrl: './movie-info.component.html',
-  styleUrls: ['./movie-info.component.scss'],
+	selector: 'app-movie-info',
+	templateUrl: './movie-info.component.html',
+	styleUrls: ['./movie-info.component.scss'],
 })
 export class MovieInfoComponent implements OnInit, OnDestroy {
 
 	id: number;
-  movie = [];
-  director: string;
-  screenplay: string;
+	movie = [];
+	director: string;
+	screenplay: string;
+	error: boolean = false;
 	subscription: Subscription;
 
+	constructor(private activatedRoute: ActivatedRoute, 
+							private tmdbService: TMDbService) {
 
-  constructor(private activatedRoute: ActivatedRoute, private tmdbService: TMDbService) {
-
-  	this.subscription = activatedRoute.params.subscribe(params => this.id = params['id']);
-  }
-
-  getInfo() {
-    this.tmdbService.getMovieInfo(this.id)
-                    .subscribe(
-                       data => {
-                         this.movie = data.json();
-                         console.log(this.movie);
-                       }
-                    )
-  }
-
-  getCrew() {
-    this.tmdbService.getCredits(this.id)
-                .subscribe(
-                   data => {
-                     let director = [];
-                     let screenplay = [];
-
-                     data.json().crew.forEach(entry => {
-                       if (entry.job === 'Director') {
-                         director.push(entry.name);
-                       } else if (entry.job === 'Screenplay' || entry.job === 'Writer') {
-                         screenplay.push(entry.name);
-                       }
-                     });
+		this.subscription = activatedRoute.params.subscribe(params => this.id = params['id']);
+	}
 
 
+	ngOnInit() {
+		this.getMovieInfo();
+		this.getCredits();
+	}
 
-                     this.director = director.join(', ');
-                     this.screenplay = screenplay.join(', ');
-                   }
-                )
-  }
+	ngOnDestroy() {
+		this.subscription.unsubscribe();
+	}
 
-  ngOnDestroy() {
-  	this.subscription.unsubscribe();
-  }
+	getMovieInfo() {
+		this.tmdbService.getMovieInfo(this.id)
+				.subscribe(
+					 movie => this.movie = movie,
+					 error => {
+					 	this.error = true;
+						console.error(error);
+					 }
+				)
+	}
 
-  ngOnInit() {
-    this.getInfo();
-    this.getCrew();
-  }
+	getCredits() {
+		this.tmdbService.getCredits(this.id)
+				.subscribe(
+					credits => {
+						this.director = credits.director.join();
+						this.screenplay = credits.screenplay.join();
+					},
+					error => {
+						console.error(error);
+					}
+				)
+	}
 
 }
