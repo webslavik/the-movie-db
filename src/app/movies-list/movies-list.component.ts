@@ -5,20 +5,24 @@ import { TMDbService } from '../shared/tmdb.service';
   selector: 'app-movies-list',
   templateUrl: './movies-list.component.html',
   styleUrls: ['./movies-list.component.scss'],
-  providers: [TMDbService]
 })
 export class MoviesListComponent implements OnInit {
 
 	moviesList = [];
+  errorMessage: string;
 
   constructor(private tmdbService: TMDbService) { }
 
   getData() {
   	this.tmdbService.getNowPlaying()
-  									.subscribe((data) => {
-  										let moviesList = data.json().results;
-  										this.moviesList.push(...moviesList);
-  									});
+				.subscribe(
+          movies => {
+					this.moviesList.push(...movies);
+          },
+          error => {
+            this.errorMessage = error;
+            console.error(error);
+          });
   }
 
 

@@ -51,7 +51,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [TMDbService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [TMDbService]
 })
 export class AppModule { }

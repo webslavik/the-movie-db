@@ -8,7 +8,6 @@ import { TMDbService } from '../shared/tmdb.service';
   selector: 'app-movie-info',
   templateUrl: './movie-info.component.html',
   styleUrls: ['./movie-info.component.scss'],
-  providers: [TMDbService]
 })
 export class MovieInfoComponent implements OnInit, OnDestroy {
 
