@@ -22,14 +22,14 @@
             <p class="movie-description">{{ movie.overview | cutDescription }}</p>
           </div>
           <div class="movie-button">
-            <button class="btn" [routerLink]="['movie-info', movie.id]">Подробнее</button>
+            <button class="btn" [routerLink]="['movie-info', movie.id]">Read More</button>
           </div>
         </div>
       </li>
     </ul>
   </div>
   <div class='show-more' (click)='getMoreMovies()'>
-    <button class="btn">Показать больше</button>
+    <button class="btn">Show More</button>
   </div>
 </div>
 
