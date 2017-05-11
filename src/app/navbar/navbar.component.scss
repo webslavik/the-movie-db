@@ -77,6 +77,15 @@
 	align-items: center;
 	max-width: 700px;
 	width: 100%;
+	position: relative;
+
+	input {
+		width: 100%;
+		border: none;
+		padding: 5px;
+		font-size: 16px;
+		background-color: $white;
+	}
 }
 
 .search-icon {

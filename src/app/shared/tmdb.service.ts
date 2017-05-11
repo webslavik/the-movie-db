@@ -18,6 +18,8 @@ export class TMDbService {
 	private now_playing: string = 'now_playing';
 	private credits: string = '/credits';
 
+	// https://api.themoviedb.org/3/search/movie?api_key=48b40155da6e1c749302058b3380da7a&query=
+
 	private pages_count: number = 1;
 
 	constructor(private http: Http) { }
@@ -37,8 +39,23 @@ export class TMDbService {
 		this.pages_count++;
 		return this.http.get(this.url + this.now_playing + this.api_key + this.pages + this.pages_count)
 							 .map(response => {
-							 		let more_movies = response.json().results;
-							 		return more_movies;
+							 		let moreMovies = response.json().results;
+							 		return moreMovies;
+							 })
+							 .catch(this.handleError);
+	}
+
+	getSearchMovie(query: string) {
+		return this.http.get(`https://api.themoviedb.org/3/search/movie?api_key=48b40155da6e1c749302058b3380da7a&query=${query}`)
+							 .map(response => {
+							 		let queryMovie = response.json().results;
+							 		let moviesInfo = [];
+
+							 		queryMovie.forEach(movie => {
+							 			moviesInfo.push({ id: movie.id, title: movie.title, poster: movie.poster_path });
+							 		});
+
+							 		return moviesInfo;
 							 })
 							 .catch(this.handleError);
 	}
