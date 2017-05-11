@@ -6,16 +6,26 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
+
 @Injectable()
 export class TMDbService {
 
-	nowPlayingLink: string = 'https://api.themoviedb.org/3/movie/now_playing?api_key=48b40155da6e1c749302058b3380da7a&page=1';
-	pages: number = 1;
+	// 'https://api.themoviedb.org/3/movie/now_playing?api_key=48b40155da6e1c749302058b3380da7a&page=1';
+
+	private url: string = 'https://api.themoviedb.org/3/movie/';
+	private api_key: string = '?api_key=48b40155da6e1c749302058b3380da7a';
+	private pages: string = '&page=';
+	private now_playing: string = 'now_playing';
+	private credits: string = '/credits';
+
+	private pages_count: number = 1;
 
 	constructor(private http: Http) { }
 
 	getNowPlaying() {
-		return this.http.get(this.nowPlayingLink)
+		this.pages_count = 1;
+
+		return this.http.get(this.url + this.now_playing + this.api_key + this.pages + this.pages_count)
 							 .map(response => {
 								 let movies = response.json().results;
 								 return movies;
@@ -24,12 +34,17 @@ export class TMDbService {
 	}
 
 	getMoreMovies() {
-		this.pages++;
-		return this.http.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=48b40155da6e1c749302058b3380da7a&page=${this.pages}`);
+		this.pages_count++;
+		return this.http.get(this.url + this.now_playing + this.api_key + this.pages + this.pages_count)
+							 .map(response => {
+							 		let more_movies = response.json().results;
+							 		return more_movies;
+							 })
+							 .catch(this.handleError);
 	}
 
-	getMovieInfo(id) {
-		return this.http.get(`https://api.themoviedb.org/3/movie/${id}?api_key=48b40155da6e1c749302058b3380da7a`)
+	getMovieInfo(id: number) {
+		return this.http.get(this.url + id + this.api_key)
 							 .map(response => {
 									let movie = response.json();
 									return movie;
@@ -37,8 +52,8 @@ export class TMDbService {
 							 .catch(this.handleError);
 	}
 
-	getCredits(credits) {
-		return this.http.get(`https://api.themoviedb.org/3/movie/${credits}/credits?api_key=48b40155da6e1c749302058b3380da7a`)
+	getCredits(id: number) {
+		return this.http.get(this.url + id + this.credits + this.api_key)
 							 .map(response => {
 									let credits = {
 										'director': [],
