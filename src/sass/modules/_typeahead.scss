@@ -35,6 +35,13 @@
 	background-size: cover;
 	background-position: center top;
 	background-repeat: no-repeat;
+
+	&.--default {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		fill: rgba($black, .5);
+	}
 }
 
 .search-item-title {

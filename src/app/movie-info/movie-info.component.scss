@@ -85,7 +85,7 @@
 .movie-poster {
 	width: 224px;
 	height: 336px;
-	background-color: rgba($black, .5);
+	background-color: rgba($black, .8);
 	background-size: cover;
 	background-position: center top;
 	background-repeat: no-repeat;
@@ -93,6 +93,18 @@
 	border-radius: 5px;
 	box-shadow: $shadow;
 	z-index: 5;
+
+	&.--default {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		fill: $white;
+
+		svg {
+			width: 64px;
+			height: 64px;
+		}
+	}
 }
 
 @include breakpoint($tablet) {
