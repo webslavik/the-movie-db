@@ -28,12 +28,17 @@ export class MovieInfoComponent implements OnInit {
 			this.getMovieInfo(id);
 			this.getCredits(id);
 		});
+
+
 	}
 
 	getMovieInfo(id: number) {
 		this.tmdbService.getMovieInfo(id)
 				.subscribe(
-					 movie => this.movie = movie,
+					 movie => {
+					 	this.movie = movie;
+					 	// console.log(this.movie);
+					 },
 					 error => {
 					 	this.error = true;
 						console.error(error);
@@ -45,8 +50,8 @@ export class MovieInfoComponent implements OnInit {
 		this.tmdbService.getCredits(id)
 				.subscribe(
 					credits => {
-						this.director = credits.director.join();
-						this.screenplay = credits.screenplay.join();
+						this.director = credits.director.join(', ');
+						this.screenplay = credits.screenplay.join(', ');
 					},
 					error => {
 						console.error(error);

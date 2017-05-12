@@ -4,7 +4,6 @@
     <div *ngIf='!movie.backdrop_path' class="movie-backdrop">
     </div>
 
-
     <div *ngIf='movie.poster_path' class="movie-poster" [ngStyle]="{'background-image': 'url(http://image.tmdb.org/t/p/w342/' + movie.poster_path + ')'}"></div>
     <div *ngIf='!movie.poster_path' class="movie-poster --default">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 8.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5zm9 .5l-2.519 4-2.481-1.96-4 5.96h14l-5-8zm8-4v14h-20v-14h20zm2-2h-24v18h24v-18z"/></svg>
@@ -18,7 +17,7 @@
       <div class='movie-feature'>
         <div class="date">{{ movie.release_date | date: 'dd.MM.yyyy' }}</div>
         <div class='genres'>
-          <span *ngFor='let genre of movie.genres'>{{ genre.name }}</span>
+          <span *ngFor='let genre of movie.genres | slice:0:3'>{{ genre.name }}</span> 
         </div>
         <div class="rating">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 312.576 312.576">
@@ -30,11 +29,11 @@
       </div>
       <div class="movie-description">{{ movie.overview }}</div>
       <ul class="movie-other">
-        <li>
+        <li *ngIf='director'>
           <div class='character'>Directed By:</div>
           <div class='anything'>{{ director }}</div>
         </li>
-        <li>
+        <li *ngIf='screenplay'>
           <div class='character'>Written By:</div>
           <div class='anything'>{{ screenplay }}</div>
         </li>

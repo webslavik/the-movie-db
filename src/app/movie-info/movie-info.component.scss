@@ -120,6 +120,10 @@
 @include breakpoint($mobile) {
 	.movie-poster {
 		display: none;
+
+		&.--default {
+			display: none;
+		}
 	}
 }
 
@@ -183,6 +187,17 @@
 	.genres {
 		font-size: rem(16);
 		font-weight: 500;
+	}
+
+	.genres {
+		span:last-child {
+			margin-right: 0;
+		}
+
+		span {
+			display: inline-block;
+			margin-right: 12px;
+		}
 	}
 
 	.rating {
