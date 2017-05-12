@@ -26,7 +26,7 @@
 	<div class="search">
 		<svg class='search-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52.966 52.966"><path d="M51.704 51.273L36.844 35.82c3.79-3.8 6.14-9.04 6.14-14.82 0-11.58-9.42-21-21-21s-21 9.42-21 21 9.42 21 21 21c5.082 0 9.747-1.817 13.383-4.832l14.895 15.49a.998.998 0 0 0 1.414.028 1 1 0 0 0 .028-1.413zM21.984 40c-10.478 0-19-8.523-19-19s8.522-19 19-19 19 8.523 19 19-8.525 19-19 19z"/></svg>
 		<input [(ngModel)]='query' (ngModelChange)='onSearchMovie(query)' placeholder="Search movies..." />
-		<ul class='search-list'>
+		<ul *ngIf='showSearchList' class='search-list'>
 			<li class='search-item' *ngFor='let movie of searchMovies' (click)='showMovieInfo(movie)'>
 				<div class='search-item-img' [ngStyle]="{'background-image': 'url(http://image.tmdb.org/t/p/w92/' + movie.poster + ')'}"></div>
 				<div class='search-item-title'>{{ movie.title }}</div>

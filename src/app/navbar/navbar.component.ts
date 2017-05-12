@@ -1,10 +1,13 @@
-import { Component,  OnInit, ViewChild } from '@angular/core';
+import { Component,  OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { TMDbService } from '../shared/tmdb.service';
 
 @Component({
 	selector: 'app-navbar',
+	host: {
+		'(document:click)': 'onClick($event)',
+	},
 	templateUrl: './navbar.component.html',
 	styleUrls: ['./navbar.component.scss']
 })
@@ -22,9 +25,11 @@ export class NavbarComponent implements OnInit {
 
 	searchMovies: object[] = [];
 	query: string;
+	showSearchList: boolean = false;
 
 	constructor(private tmdbService: TMDbService,
-							private router: Router) { }
+							private router: Router,
+							private eref: ElementRef) { }
 
 	ngOnInit() {
 	}
@@ -37,10 +42,21 @@ export class NavbarComponent implements OnInit {
 		event.stopPropagation();
 	}
 
+
+	onClick(event) {
+		if (!this.eref.nativeElement.contains(event.target)) {
+			this.showSearchList = false;
+			// this.query = '';
+		}
+	}
+
 	onSearchMovie(query: string) {
-		if (query == '') 
+		if (query == '') {
+			this.showSearchList = false;
 			this.searchMovies = [];
+		}
 		else {
+			this.showSearchList = true;
 			this.tmdbService.getSearchMovie(query)
 					.subscribe(
 						result => {
