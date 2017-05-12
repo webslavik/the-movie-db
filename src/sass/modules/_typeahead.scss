@@ -1,76 +1,10 @@
-.twitter-typeahead {
-	display: block;
-	width: 100%;
-}
-
-.tt-input {
-	width: 100%;
-	border: none;
-	padding: 5px;
-	font-size: 16px;
-	background-color: $white !important;
-}
-
-.tt-menu {
+.search-list {
 	max-height: 480px;
 	width: 100%;
-	background-color: $white;
-	border-radius: 3px;
-	box-shadow: $shadow;
-	overflow-y: auto;
-	color: $black;
-}
-
-
-.tt-suggestion {
-	padding: 8px;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	cursor: pointer;
-	transition: all 100ms ease-in-out;
-
-	&:hover,
-	&:focus {
-		background-color: rgba($black, .1);
-	}
-}
-
-.tt-highlight {
-	color: $primary;
-}
-
-
-.suggest-img {
-	min-width: 50px;
-	width: 50px;
-	height: 69px;
-	margin-right: 16px;
-	background-color: rgba($black, .5);
-	background-size: cover;
-	background-position: center top;
-	background-repeat: no-repeat;
-}
-
-.suggest-title {
-	font-size: rem(18);
-}
-
-@include breakpoint($mobile) {
-	.suggest-title {
-		font-size: rem(16);
-	}	
-}
-
-
-// ---------------------------------
-.search-list {
 	position: absolute;
 	top: 32px;
 	left: 0;
 	z-index: 10;
-	// max-height: 480px;
-	width: 100%;
 	background-color: $white;
 	border-radius: 3px;
 	box-shadow: $shadow;
