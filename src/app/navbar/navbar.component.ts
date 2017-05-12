@@ -74,7 +74,7 @@ export class NavbarComponent implements OnInit {
 		this.searchMovies = [];
 		this.query = '';
 		this.router.navigate(['movie-info', movie.id]);
-		console.log(movie);
+		// console.log(movie);
 	}
 
 }
