@@ -52,7 +52,7 @@
 	</div>
 </div>
 
-<div class="theme-choose" [ngClass]='{"is-show": switchTheme}' (click)='onSwitchThemes()'>
+<div class="theme-choose"  [ngClass]='{"is-show": switchTheme}' (click)='onSwitchThemes()'>
   <div class="theme-sheet" (click)='onStop($event)'>
     <ul class="theme-colors-list">
       <li *ngFor='let item of themeData' class="theme-color-item" theme-switch

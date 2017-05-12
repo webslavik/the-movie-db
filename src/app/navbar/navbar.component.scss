@@ -185,8 +185,11 @@
 	bottom: 0;
 	z-index: 5;
 	pointer-events: none;
+	opacity: 0;
+	transition: all 200ms ease;
 
 	&.is-show {
+		opacity: 1;
 		pointer-events: auto;
 	}
 
