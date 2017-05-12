@@ -15,6 +15,7 @@ export class MovieInfoComponent implements OnInit {
 	movie = [];
 	director: string;
 	screenplay: string;
+	studios: string; 
 	error: boolean = false;
 
 	constructor(private activatedRoute: ActivatedRoute, 
@@ -37,7 +38,13 @@ export class MovieInfoComponent implements OnInit {
 				.subscribe(
 					 movie => {
 					 	this.movie = movie;
-					 	// console.log(this.movie);
+
+					 	let studiosList = [];
+					 	movie.production_companies.forEach(studio => {
+					 		studiosList.push(studio.name);
+					 	})
+
+					 	this.studios = studiosList.join(', ');
 					 },
 					 error => {
 					 	this.error = true;

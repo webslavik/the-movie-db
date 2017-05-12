@@ -37,9 +37,9 @@
           <div class='character'>Written By:</div>
           <div class='anything'>{{ screenplay }}</div>
         </li>
-        <li>
+        <li *ngIf='studios'>
           <div class='character'>Studio:</div>
-          <span class='anything' *ngFor='let studio of movie.production_companies'>{{ studio.name }}, </span>
+          <span class='anything'>{{ studios }}</span>
         </li>
         <li *ngIf='movie.budget'>
           <div class='character'>Budget:</div>
