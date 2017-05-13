@@ -7,7 +7,7 @@
   padding-top: 64px;
 
   @include breakpoint($mobile) {
-    padding: 104px;
+    padding-top: 104px;
   }
 }
 
@@ -26,11 +26,9 @@
   li:nth-child(3n) {
   	margin-right: 0;
   }
-  
-}
 
-@include breakpoint($desktop) {
-  .movies-list {
+
+  @include breakpoint($desktop) {
     max-width: 1000px;
 
     li:nth-child(even) {
@@ -41,16 +39,12 @@
       margin-right: 40px;
     }
   }
-}
 
-@include breakpoint($tablet) {
-  .movies-list {
+  @include breakpoint($tablet) {
     max-width: 728px;
   }
-}
-
-@include breakpoint($mobile) {
-  .movies-list {
+  
+  @include breakpoint($mobile) {
     max-width: 416px;
     padding-left: 12px;
     padding-right: 12px;
@@ -77,21 +71,19 @@
   &:focus {
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   }
-}
 
-@include breakpoint($tablet) {
-  .movie-card {
+
+  @include breakpoint($tablet) {
     height: auto;
     flex-direction: column;
     max-width: 344px;
   }
-}
 
-@include breakpoint($mobile) {
-  .movie-card {
+  @include breakpoint($mobile) {
     max-width: 384px;
   }
 }
+
 
 //------------------------------
 .movie-poster {
@@ -112,14 +104,14 @@
       height: 64px;
     }
   }
-}
 
-@include breakpoint($tablet) {
-  .movie-poster {
+
+  @include breakpoint($tablet) {
     width: 100%;
     height: 400px;
   }
 }
+
 
 //------------------------------
 .movie-content {
@@ -128,21 +120,16 @@
 	justify-content: space-between;
   width: percentage(293px / 480px);
   padding: 24px;
-}
 
-@include breakpoint($tablet) {
-  .movie-content {
+  @include breakpoint($tablet) {
     width: 100%;
   }
-}
 
-@include breakpoint($mobile) {
-  .movie-content {
+  @include breakpoint($mobile) {
     padding-top: 16px;
     padding-left: 16px;
     padding-right: 16px;
     padding-bottom: 24px;
-
   }
 }
 
@@ -193,32 +180,28 @@
 .movie-description {
 	font-size: rem(14px);
 	line-height: 15px;
-}
 
-@include breakpoint($tablet) {
-  .movie-description {
+  @include breakpoint($tablet) {
     margin-bottom: 16px;
   }
-}
 
-@include breakpoint($mobile) {
-  .movie-description {
+  @include breakpoint($mobile) {
     font-size: rem(16px);
     line-height: 20px;
   }
 }
 
 
+
 //------------------------------
 .movie-button {
 	text-align: right;
-}
 
-@include breakpoint($tablet) {
-  .movie-button {
+  @include breakpoint($tablet) {
     text-align: center;
   }
 }
+
 
 //------------------------------
 .show-more {

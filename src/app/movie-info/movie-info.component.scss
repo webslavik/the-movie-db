@@ -4,10 +4,15 @@
 .movie-info-wrap {
 	display: flex;
 	justify-content: center;
-	padding-top: 32px;
+	padding-top: 96px;
 	padding-left: 12px;
 	padding-right: 12px;
   padding-bottom: 40px;
+	
+	@include breakpoint($mobile) {
+		padding-top: 136px;
+	}
+
 }
 
 //------------------------------
@@ -43,7 +48,6 @@
 		padding-left: 16px;
 		padding-right: 16px;
 	}
-
 }
 
 //------------------------------
