@@ -5,12 +5,23 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-
+	
+	width: 100%;
 	height: 64px;
 	padding-left: 64px;
 	padding-right: 64px;
 	border-bottom-style: solid;
 	border-bottom-width: 1px;
+	transition: box-shadow 200ms ease-in-out;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+
+	&.--sticky {
+		box-shadow: 0 2px 4px -1px rgba(0,0,0,0.06), 0 4px 5px 0 rgba(0,0,0,0.06), 0 1px 10px 0 rgba(0,0,0,0.08);
+	}
 }
 
 
@@ -178,12 +189,12 @@
 //  Switch Theme
 //-------------------------------------------------
 .theme-choose {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	z-index: 5;
+	z-index: 15;
 	pointer-events: none;
 	opacity: 0;
 	transition: all 200ms ease;

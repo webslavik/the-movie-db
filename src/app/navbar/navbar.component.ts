@@ -1,12 +1,14 @@
-import { Component,  OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component,  OnInit, ViewChild, ElementRef, Inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { DOCUMENT } from '@angular/platform-browser';
 
 import { TMDbService } from '../shared/tmdb.service';
 
 @Component({
-	selector: 'app-navbar',
+	selector: 'navbar',
 	host: {
 		'(document:click)': 'onClick($event)',
+		'(document:scroll)': 'onWindowScroll()',
 	},
 	templateUrl: './navbar.component.html',
 	styleUrls: ['./navbar.component.scss']
@@ -27,12 +29,15 @@ export class NavbarComponent implements OnInit {
 	query: string;
 	showSearchList: boolean = false;
 
+	navIsSticky: boolean = false;
+
+
 	constructor(private tmdbService: TMDbService,
 							private router: Router,
-							private eref: ElementRef) { }
+							private eref: ElementRef,
+							@Inject(DOCUMENT) private document: any) { }
 
-	ngOnInit() {
-	}
+	ngOnInit() {}
 
 	onSwitchThemes() {
 		this.switchTheme = !this.switchTheme;
@@ -40,6 +45,16 @@ export class NavbarComponent implements OnInit {
 
 	onStop(event) {
 		event.stopPropagation();
+	}
+
+	onWindowScroll() {
+		let wScroll = document.body.scrollTop;
+
+		if (wScroll > 0) {
+			this.navIsSticky = true;
+		} else {
+			this.navIsSticky = false;
+		}
 	}
 
 
