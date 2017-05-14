@@ -17,6 +17,7 @@ export class MovieInfoComponent implements OnInit {
 	screenplay: string;
 	studios: string; 
 	error: boolean = false;
+	skeletonShow: boolean = true;
 
 	constructor(private activatedRoute: ActivatedRoute, 
 							private tmdbService: TMDbService) {
@@ -37,6 +38,7 @@ export class MovieInfoComponent implements OnInit {
 		this.tmdbService.getMovieInfo(id)
 				.subscribe(
 					 movie => {
+					 	this.skeletonShow = false;
 					 	this.movie = movie;
 
 					 	let studiosList = [];
@@ -47,6 +49,7 @@ export class MovieInfoComponent implements OnInit {
 					 	this.studios = studiosList.join(', ');
 					 },
 					 error => {
+					 	this.skeletonShow = false;
 					 	this.error = true;
 						console.error(error);
 					 }

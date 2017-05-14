@@ -2,354 +2,506 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<title>CodeAngular2</title>
-	<base href="/">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<style>
-	* {
-		box-sizing: border-box;
-		outline: none;
-	}
-	
-	html,
-	body {
-		width: 100%;
-		height: 100%;
-	}
-	
-	body {
-		min-width: 320px;
-		margin: 0;
-		position: relative;
-		font-family: 'Roboto', sans-serif;
-		background-color: #fff;
-		color: #000;
-		-webkit-font-smoothing: antialiased;
-		-webkit-text-size-adjust: 100%;
-	}
-	
-	ol,
-	ul {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-	
-	.skeleton-search,
-	.skeleton-logo,
-	.skeleton-nav,
-	.skeleton-card-title,
-	.skeleton-card-description div,
-	.skeleton-card-btn {
-		border-radius: 5px;
-		background-color: #BDBDBD;
-	}
-	
-	.skeleton-navbar {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		width: 100%;
-		height: 64px;
-		padding-left: 64px;
-		padding-right: 64px;
-		background-color: #EEEEEE;
-	}
-	
-	.skeleton-logo {
-		min-width: 120px;
-		height: 32px;
-	}
-	
-	.skeleton-search {
-		max-width: 585px;
-		width: 100%;
-		height: 24px;
-	}
-	
-	.skeleton-nav {
-		min-width: 36px;
-		height: 36px;
-		border-radius: 50%;
-	}
-	
-	.skeleton-cards-wrap {
-		display: flex;
-		justify-content: center;
-		padding-top: 32px;
-	}
-	
-	.skeleton-cards-wrap.--movie-list {
-		padding-top: 96px;
-	}
-	
-	.skeleton-cards-list {
-		display: flex;
-		flex-wrap: wrap;
-		max-width: 1520px;
-	}
-	
-	.skeleton-cards-list li {
-		margin-right: 40px;
-		margin-bottom: 40px;
-	}
-	
-	.skeleton-cards-list li:nth-child(3n) {
-		margin-right: 0;
-	}
-	
-	.skeleton-card {
-		display: flex;
-		width: 480px;
-		height: 280px;
-		border-radius: 5px;
-		background-color: #EEEEEE;
-		overflow: hidden;
-	}
-	
-	.skeleton-card-poster {
-		width: 187px;
-		background-color: #BDBDBD;
-	}
-	
-	.skeleton-card-content {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		width: 293px;
-		padding-left: 24px;
-		padding-right: 24px;
-		padding-top: 50px;
-		padding-bottom: 24px;
-	}
-	
-	.skeleton-card-title {
-		width: 120px;
-		height: 24px;
-	}
-	
-	.skeleton-card-description div {
-		width: 100%;
-		height: 16px;
-		margin-bottom: 10px;
-	}
-	
-	.skeleton-card-description div:last-child {
-		margin-bottom: 0;
-	}
-	
-	.skeleton-card-btn-wrap {
-		display: flex;
-		justify-content: flex-end;
-	}
-	
-	.skeleton-card-btn {
-		width: 130px;
-		height: 40px;
-	}
-	
-	@media (max-width: 1600px) {
-		.skeleton-navbar {
-			padding-left: 32px;
-			padding-right: 32px;
-		}
-		.skeleton-cards-list {
-			max-width: 1000px;
-		}
-		.skeleton-cards-list li:nth-child(4n+1) {
-			display: none;
-		}
-	}
-	
-	@media (max-width: 1024px) {
-		.skeleton-navbar {
-			padding-left: 16px;
-			padding-right: 16px;
-		}
-		.skeleton-logo {
-			margin-right: 64px;
-		}
-		.skeleton-search {
-			margin-right: 64px;
-		}
-		.skeleton-cards-list {
-			max-width: 728px;
-		}
-		.skeleton-card {
-			height: auto;
-			flex-direction: column;
-			max-width: 344px;
-		}
-		.skeleton-card-poster {
-			width: 100%;
-			height: 160px;
-		}
-		.skeleton-card-content {
-			width: 100%;
-			padding-top: 24px;
-		}
-		.skeleton-card-title {
-			margin-bottom: 24px;
-		}
-		.skeleton-card-description {
-			margin-bottom: 24px;
-		}
-		.skeleton-card-btn-wrap {
-			display: flex;
-			justify-content: center;
-		}
-	}
-	
-	@media (max-width: 767px) {
-		.skeleton-cards-wrap.--movie-list {
-			padding-top: 136px;
-		}
-		.skeleton-navbar {
-			align-items: flex-start;
-			flex-wrap: wrap;
-			height: 104px;
-			padding-top: 8px;
-			padding-left: 12px;
-			padding-right: 12px;
-		}
-		.skeleton-logo {
-			margin-right: 64px;
-			order: 1;
-		}
-		.skeleton-nav {
-			order: 1;
-		}
-		.skeleton-search {
-			width: 100%;
-			margin-right: 0;
-			order: 2;
-		}
-		.skeleton-cards-list {
-			max-width: 416px;
-			padding-left: 12px;
-			padding-right: 12px;
-		}
-		.skeleton-cards-list li:nth-child(3n) {
-			display: none;
-		}
-		.skeleton-cards-list li:nth-child(1n+1) {
-			margin-right: 0;
-		}
-		.skeleton-card {
-			height: auto;
-			flex-direction: column;
-			max-width: 384px;
-			width: 100%;
-		}
-	}
-	</style>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
-	<link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta charset="utf-8">
+  <title>CodeAngular2</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  * {
+    box-sizing: border-box;
+    outline: none;
+  }
+  
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+  }
+  
+  body {
+    min-width: 320px;
+    margin: 0;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    background-color: #fff;
+    color: #000;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  ol,
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .skeleton-search,
+  .skeleton-logo,
+  .skeleton-nav,
+  .skeleton-card-title,
+  .skeleton-card-description div,
+  .skeleton-card-btn {
+    border-radius: 5px;
+    background-color: #BDBDBD;
+  }
+  
+  .skeleton-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 64px;
+    padding-left: 64px;
+    padding-right: 64px;
+    background-color: #EEEEEE;
+  }
+  
+  .skeleton-logo {
+    min-width: 120px;
+    height: 32px;
+  }
+  
+  .skeleton-search {
+    max-width: 585px;
+    width: 100%;
+    height: 24px;
+  }
+  
+  .skeleton-nav {
+    min-width: 36px;
+    height: 36px;
+    border-radius: 50%;
+  }
+  
+  .skeleton-cards-wrap {
+    display: flex;
+    justify-content: center;
+    padding-top: 32px;
+  }
+  
+  .skeleton-cards-wrap.--movie-list {
+    padding-top: 96px;
+  }
+  
+  .skeleton-cards-list {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1520px;
+  }
+  
+  .skeleton-cards-list li {
+    margin-right: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .skeleton-cards-list li:nth-child(3n) {
+    margin-right: 0;
+  }
+  
+  .skeleton-card {
+    display: flex;
+    width: 480px;
+    height: 280px;
+    border-radius: 5px;
+    background-color: #EEEEEE;
+    overflow: hidden;
+  }
+  
+  .skeleton-card-poster {
+    width: 187px;
+    background-color: #BDBDBD;
+  }
+  
+  .skeleton-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 293px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 50px;
+    padding-bottom: 24px;
+  }
+  
+  .skeleton-card-title {
+    width: 120px;
+    height: 24px;
+  }
+  
+  .skeleton-card-description div {
+    width: 100%;
+    height: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .skeleton-card-description div:last-child {
+    margin-bottom: 0;
+  }
+  
+  .skeleton-card-btn-wrap {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .skeleton-card-btn {
+    width: 130px;
+    height: 40px;
+  }
+  
+  .skeleton-movie-wrap {
+    display: flex;
+    justify-content: center;
+    padding-top: 96px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 40px;
+  }
+  
+  .skeleton-movie {
+    display: flex;
+    justify-content: space-between;
+    max-width: 984px;
+    width: 100%;
+    padding-top: 120px;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-bottom: 32px;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    background: #EEEEEE;
+  }
+  
+  .skeleton-movie-backgrop {
+    width: 100%;
+    height: 320px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    background-color: #BDBDBD;
+  }
+  
+  .skeleton-movie-poster {
+    width: 224px;
+    height: 336px;
+    background-color: #9E9E9E;
+    border-radius: 5px;
+    z-index: 5;
+  }
+  
+  .skeleton-movie-info {
+    max-width: 520px;
+    width: 100%;
+    z-index: 5;
+  }
+  
+  .skeleton-movie-feature {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 224px;
+    margin-bottom: 24px;
+  }
+  
+  .skeleton-movie-feature div {
+    width: 120px;
+    height: 22px;
+    background-color: #BDBDBD;
+    border-radius: 5px;
+  }
+  
+  .skeleton-movie-description {
+    margin-bottom: 24px;
+  }
+  
+  .skeleton-movie-description div {
+    width: 100%;
+    height: 16px;
+    margin-bottom: 10px;
+    background-color: #BDBDBD;
+    border-radius: 5px;
+  }
+  
+  .skeleton-movie-description div:last-child {
+    margin-bottom: 0px;
+  }
+  
+  .skeleton-movie-other li {
+    margin-bottom: 16px;
+  }
+  
+  .skeleton-movie-other li div:first-child,
+  .skeleton-movie-other li div:last-child {
+    background-color: #BDBDBD;
+    border-radius: 5px;
+  }
+  
+  .skeleton-movie-other li div:first-child {
+    width: 70px;
+    height: 12px;
+    margin-bottom: 8px;
+  }
+  
+  .skeleton-movie-other li div:last-child {
+    width: 242px;
+    height: 16px;
+  }
+  
+  @media (max-width: 1024px) {
+    .skeleton-movie {
+      justify-content: space-around;
+      padding-top: 80px;
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+    .skeleton-movie-backgrop {
+      height: 264px;
+    }
+    .skeleton-movie-poster {
+      min-width: 206px;
+      min-height: 284px;
+      width: 206px;
+      height: 284px;
+      margin-right: 32px;
+    }
+    .skeleton-movie-feature {
+      padding-top: 207px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .skeleton-movie-wrap {
+      padding-top: 136px;
+    }
+    .skeleton-movie {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    .skeleton-movie-poster {
+      display: none;
+    }
+    .skeleton-movie-feature {
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+    .skeleton-movie-feature div:first-child {
+      margin-bottom: 16px;
+    }
+    .skeleton-movie-feature div:last-child {
+      width: 100%;
+      background-color: transparent;
+    }
+    .skeleton-movie-feature div:last-child div {
+      width: 120px;
+      height: 22px;
+      background-color: #BDBDBD;
+      border-radius: 5px;
+    }
+  }
+  
+  @media (max-width: 1600px) {
+    .skeleton-navbar {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+    .skeleton-cards-list {
+      max-width: 1000px;
+    }
+    .skeleton-cards-list li:nth-child(4n+1) {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .skeleton-navbar {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    .skeleton-logo {
+      margin-right: 64px;
+    }
+    .skeleton-search {
+      margin-right: 64px;
+    }
+    .skeleton-cards-list {
+      max-width: 728px;
+    }
+    .skeleton-card {
+      height: auto;
+      flex-direction: column;
+      max-width: 344px;
+    }
+    .skeleton-card-poster {
+      width: 100%;
+      height: 160px;
+    }
+    .skeleton-card-content {
+      width: 100%;
+      padding-top: 24px;
+    }
+    .skeleton-card-title {
+      margin-bottom: 24px;
+    }
+    .skeleton-card-description {
+      margin-bottom: 24px;
+    }
+    .skeleton-card-btn-wrap {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .skeleton-cards-wrap.--movie-list {
+      padding-top: 136px;
+    }
+    .skeleton-navbar {
+      align-items: flex-start;
+      flex-wrap: wrap;
+      height: 104px;
+      padding-top: 8px;
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+    .skeleton-logo {
+      margin-right: 64px;
+      order: 1;
+    }
+    .skeleton-nav {
+      order: 1;
+    }
+    .skeleton-search {
+      width: 100%;
+      margin-right: 0;
+      order: 2;
+    }
+    .skeleton-cards-list {
+      max-width: 416px;
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+    .skeleton-cards-list li:nth-child(3n) {
+      display: none;
+    }
+    .skeleton-cards-list li:nth-child(1n+1) {
+      margin-right: 0;
+    }
+    .skeleton-card {
+      height: auto;
+      flex-direction: column;
+      max-width: 384px;
+      width: 100%;
+    }
+  }
+  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 
 <body class='t-white'>
-	<app-root>
-		<div class='skeleton-navbar'>
-			<div class='skeleton-logo'></div>
-			<div class='skeleton-search'></div>
-			<div class='skeleton-nav'></div>
-		</div>
-		<div class="skeleton-cards-wrap">
-			<ul class="skeleton-cards-list">
-				<li class='skeleton-card'>
-					<div class='skeleton-card-poster'></div>
-					<div class='skeleton-card-content'>
-						<div class="skeleton-card-title"></div>
-						<div class="skeleton-card-description">
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-						</div>
-						<div class="skeleton-card-btn-wrap">
-							<div class="skeleton-card-btn"></div>
-						</div>
-					</div>
-				</li>
-				<li class='skeleton-card'>
-					<div class='skeleton-card-poster'></div>
-					<div class='skeleton-card-content'>
-						<div class="skeleton-card-title"></div>
-						<div class="skeleton-card-description">
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-						</div>
-						<div class="skeleton-card-btn-wrap">
-							<div class="skeleton-card-btn"></div>
-						</div>
-					</div>
-				</li>
-				<li class='skeleton-card'>
-					<div class='skeleton-card-poster'></div>
-					<div class='skeleton-card-content'>
-						<div class="skeleton-card-title"></div>
-						<div class="skeleton-card-description">
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-						</div>
-						<div class="skeleton-card-btn-wrap">
-							<div class="skeleton-card-btn"></div>
-						</div>
-					</div>
-				</li>
-				<li class='skeleton-card'>
-					<div class='skeleton-card-poster'></div>
-					<div class='skeleton-card-content'>
-						<div class="skeleton-card-title"></div>
-						<div class="skeleton-card-description">
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-						</div>
-						<div class="skeleton-card-btn-wrap">
-							<div class="skeleton-card-btn"></div>
-						</div>
-					</div>
-				</li>
-				<li class='skeleton-card'>
-					<div class='skeleton-card-poster'></div>
-					<div class='skeleton-card-content'>
-						<div class="skeleton-card-title"></div>
-						<div class="skeleton-card-description">
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-						</div>
-						<div class="skeleton-card-btn-wrap">
-							<div class="skeleton-card-btn"></div>
-						</div>
-					</div>
-				</li>
-				<li class='skeleton-card'>
-					<div class='skeleton-card-poster'></div>
-					<div class='skeleton-card-content'>
-						<div class="skeleton-card-title"></div>
-						<div class="skeleton-card-description">
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-						</div>
-						<div class="skeleton-card-btn-wrap">
-							<div class="skeleton-card-btn"></div>
-						</div>
-					</div>
-				</li>
-			</ul>
-		</div>
-	</app-root>
+  <app-root>
+    <div class='skeleton-navbar'>
+      <div class='skeleton-logo'></div>
+      <div class='skeleton-search'></div>
+      <div class='skeleton-nav'></div>
+    </div>
+    <div class="skeleton-cards-wrap">
+      <ul class="skeleton-cards-list">
+        <li class='skeleton-card'>
+          <div class='skeleton-card-poster'></div>
+          <div class='skeleton-card-content'>
+            <div class="skeleton-card-title"></div>
+            <div class="skeleton-card-description">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <div class="skeleton-card-btn-wrap">
+              <div class="skeleton-card-btn"></div>
+            </div>
+          </div>
+        </li>
+        <li class='skeleton-card'>
+          <div class='skeleton-card-poster'></div>
+          <div class='skeleton-card-content'>
+            <div class="skeleton-card-title"></div>
+            <div class="skeleton-card-description">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <div class="skeleton-card-btn-wrap">
+              <div class="skeleton-card-btn"></div>
+            </div>
+          </div>
+        </li>
+        <li class='skeleton-card'>
+          <div class='skeleton-card-poster'></div>
+          <div class='skeleton-card-content'>
+            <div class="skeleton-card-title"></div>
+            <div class="skeleton-card-description">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <div class="skeleton-card-btn-wrap">
+              <div class="skeleton-card-btn"></div>
+            </div>
+          </div>
+        </li>
+        <li class='skeleton-card'>
+          <div class='skeleton-card-poster'></div>
+          <div class='skeleton-card-content'>
+            <div class="skeleton-card-title"></div>
+            <div class="skeleton-card-description">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <div class="skeleton-card-btn-wrap">
+              <div class="skeleton-card-btn"></div>
+            </div>
+          </div>
+        </li>
+        <li class='skeleton-card'>
+          <div class='skeleton-card-poster'></div>
+          <div class='skeleton-card-content'>
+            <div class="skeleton-card-title"></div>
+            <div class="skeleton-card-description">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <div class="skeleton-card-btn-wrap">
+              <div class="skeleton-card-btn"></div>
+            </div>
+          </div>
+        </li>
+        <li class='skeleton-card'>
+          <div class='skeleton-card-poster'></div>
+          <div class='skeleton-card-content'>
+            <div class="skeleton-card-title"></div>
+            <div class="skeleton-card-description">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <div class="skeleton-card-btn-wrap">
+              <div class="skeleton-card-btn"></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </app-root>
 </body>
 
 </html>
