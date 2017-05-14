@@ -27,18 +27,112 @@
     color: #000;
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
-    transition: color 30ms ease-out, background-color 30ms ease-out;
+  }
+
+    @media (max-width: 1600px) {
+    .skeleton-navbar {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+    .skeleton-cards-list {
+      max-width: 1000px;
+    }
+    .skeleton-cards-list li:nth-child(4n+1) {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .skeleton-navbar {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    .skeleton-logo {
+      margin-right: 64px;
+    }
+    .skeleton-search {
+      margin-right: 64px;
+    }
+    .skeleton-cards-list {
+      max-width: 728px;
+    }
+    .skeleton-card {
+      height: auto;
+      flex-direction: column;
+      max-width: 344px;
+    }
+    .skeleton-card-poster {
+      width: 100%;
+      height: 160px;
+    }
+    .skeleton-card-content {
+      width: 100%;
+      padding-top: 24px;
+    }
+    .skeleton-card-title {
+      margin-bottom: 24px;
+    }
+    .skeleton-card-description {
+      margin-bottom: 24px;
+    }
+    .skeleton-card-btn-wrap {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .skeleton-navbar {
+      align-items: flex-start;
+      flex-wrap: wrap;
+      height: 104px;
+      padding-top: 8px;
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+    .skeleton-logo {
+      margin-right: 64px;
+      order: 1;
+    }
+    .skeleton-nav {
+      order: 1;
+    }
+    .skeleton-search {
+      width: 100%;
+      margin-right: 0;
+      order: 2;
+    }
+    .skeleton-cards-list {
+      max-width: 416px;
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+    .skeleton-cards-list li:nth-child(3n) {
+      display: none;
+    }
+    .skeleton-cards-list li:nth-child(1n+1) {
+      margin-right: 0;
+    }
+    .skeleton-card {
+      height: auto;
+      flex-direction: column;
+      max-width: 384px;
+      width: 100%;
+    }
   }
   
   .skeleton-search,
   .skeleton-logo,
-  .skeleton-theme {
+  .skeleton-nav,
+  .skeleton-card-title,
+  .skeleton-card-description div,
+  .skeleton-card-btn {
     border-radius: 5px;
     background-color: #BDBDBD;
   }
   
   .skeleton-navbar {
-    /*margin-top: 64px;*/
+    // margin-top: 64px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -50,23 +144,93 @@
   }
   
   .skeleton-logo {
-    width: 120px;
-    height: 36px;
-    margin-right: 180px;
+    min-width: 120px;
+    height: 32px;
   }
   
   .skeleton-search {
     max-width: 585px;
     width: 100%;
     height: 24px;
-    margin-right: 300px;
   }
   
-  .skeleton-theme {
-    width: 36px;
+  .skeleton-nav {
+    min-width: 36px;
     height: 36px;
     border-radius: 50%;
   }
+  
+  .skeleton-cards-wrap {
+    display: flex;
+    justify-content: center;
+    padding-top: 32px;
+  }
+  
+  .skeleton-cards-list {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1520px;
+  }
+  
+  .skeleton-cards-list li {
+    margin-right: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .skeleton-cards-list li:nth-child(3n) {
+    margin-right: 0;
+  }
+  
+  .skeleton-card {
+    display: flex;
+    width: 480px;
+    height: 280px;
+    border-radius: 5px;
+    background-color: #EEEEEE;
+    overflow: hidden;
+  }
+  
+  .skeleton-card-poster {
+    width: 187px;
+    background-color: #BDBDBD;
+  }
+  
+  .skeleton-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 293px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 50px;
+    padding-bottom: 24px;
+  }
+  
+  .skeleton-card-title {
+    width: 120px;
+    height: 24px;
+  }
+  
+  .skeleton-card-description div {
+    width: 100%;
+    height: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .skeleton-card-description div:last-child {
+    margin-bottom: 0;
+  }
+  
+  .skeleton-card-btn-wrap {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .skeleton-card-btn {
+    width: 130px;
+    height: 40px;
+  }
+  
   </style>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -74,11 +238,105 @@
 
 <body class='t-white'>
   <app-root>
-   <!--  <div class='skeleton-navbar'>
+    <div class='skeleton-navbar'>
       <div class='skeleton-logo'></div>
       <div class='skeleton-search'></div>
-      <div class='skeleton-theme'></div>
-    </div> -->
+      <div class='skeleton-nav'></div>
+    </div>
+    <div class="skeleton-cards-wrap">
+      <ul class="skeleton-cards-list">
+        <li class='skeleton-card'>
+          <div class='skeleton-card-poster'></div>
+          <div class='skeleton-card-content'>
+            <div class="skeleton-card-title"></div>
+            <div class="skeleton-card-description">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <div class="skeleton-card-btn-wrap">
+              <div class="skeleton-card-btn"></div>
+            </div>
+          </div>
+        </li>
+        <li class='skeleton-card'>
+          <div class='skeleton-card-poster'></div>
+          <div class='skeleton-card-content'>
+            <div class="skeleton-card-title"></div>
+            <div class="skeleton-card-description">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <div class="skeleton-card-btn-wrap">
+              <div class="skeleton-card-btn"></div>
+            </div>
+          </div>
+        </li>
+        <li class='skeleton-card'>
+          <div class='skeleton-card-poster'></div>
+          <div class='skeleton-card-content'>
+            <div class="skeleton-card-title"></div>
+            <div class="skeleton-card-description">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <div class="skeleton-card-btn-wrap">
+              <div class="skeleton-card-btn"></div>
+            </div>
+          </div>
+        </li>
+        <li class='skeleton-card'>
+          <div class='skeleton-card-poster'></div>
+          <div class='skeleton-card-content'>
+            <div class="skeleton-card-title"></div>
+            <div class="skeleton-card-description">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <div class="skeleton-card-btn-wrap">
+              <div class="skeleton-card-btn"></div>
+            </div>
+          </div>
+        </li>
+        <li class='skeleton-card'>
+          <div class='skeleton-card-poster'></div>
+          <div class='skeleton-card-content'>
+            <div class="skeleton-card-title"></div>
+            <div class="skeleton-card-description">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <div class="skeleton-card-btn-wrap">
+              <div class="skeleton-card-btn"></div>
+            </div>
+          </div>
+        </li>
+        <li class='skeleton-card'>
+          <div class='skeleton-card-poster'></div>
+          <div class='skeleton-card-content'>
+            <div class="skeleton-card-title"></div>
+            <div class="skeleton-card-description">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <div class="skeleton-card-btn-wrap">
+              <div class="skeleton-card-btn"></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
   </app-root>
 </body>
 
