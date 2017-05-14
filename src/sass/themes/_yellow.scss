@@ -21,4 +21,40 @@
 	.search-icon {
 		fill: $white;
 	}
+
+	.skeleton-card,
+	.skeleton-movie {
+		background-color: #FDD835;
+	}
+
+	.skeleton-search,
+	.skeleton-logo,
+	.skeleton-nav,
+	.skeleton-card-title,
+	.skeleton-card-description div,
+  .skeleton-card-poster,
+	.skeleton-card-btn,
+	.skeleton-movie-backgrop,
+	.skeleton-movie-feature div,
+	.skeleton-movie-description div,
+	.skeleton-movie-other li div:first-child,
+  .skeleton-movie-other li div:last-child,
+  .skeleton-movie-feature div:last-child div {
+		background-color: #FBC02D;
+	}
+
+	.skeleton-movie-poster {
+		background-color: #F9A825;
+	}
+}
+
+@include breakpoint($mobile) {
+	.t-yellow {
+		.skeleton-movie-feature div:last-child {
+      background-color: transparent;
+    }
+		.skeleton-movie-feature div:last-child div {
+			background-color: #FBC02D;
+		}
+	}
 }

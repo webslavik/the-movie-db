@@ -32,4 +32,41 @@
 	.error-text {
 		color: $white;
 	}
+
+	.skeleton-card,
+	.skeleton-movie {
+		background-color: #9E9E9E;
+	}
+
+	.skeleton-search,
+	.skeleton-logo,
+	.skeleton-nav,
+	.skeleton-card-title,
+	.skeleton-card-description div,
+  .skeleton-card-poster,
+	.skeleton-card-btn,
+	.skeleton-movie-backgrop,
+	.skeleton-movie-feature div,
+	.skeleton-movie-description div,
+	.skeleton-movie-other li div:first-child,
+  .skeleton-movie-other li div:last-child,
+  .skeleton-movie-feature div:last-child div {
+		background-color: #757575;
+	}
+
+	.skeleton-movie-poster {
+		background-color: #616161;
+	}
+}
+
+
+@include breakpoint($mobile) {
+	.t-black {
+		.skeleton-movie-feature div:last-child {
+      background-color: transparent;
+    }
+		.skeleton-movie-feature div:last-child div {
+			background-color: #757575;
+		}
+	}
 }
