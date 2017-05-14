@@ -1,42 +1,137 @@
-<div *ngIf='!errorMessage'>
-  <div class='movies-list-wrap'>
-    <ul class="movies-list">
-      <li class='movie-card' *ngFor='let movie of moviesList'>
-        <div *ngIf='movie.poster_path' class="movie-poster" [ngStyle]="{'background-image': 'url(http://image.tmdb.org/t/p/w342/' + movie.poster_path + ')'}"></div>
-        <div *ngIf='!movie.poster_path' class="movie-poster --default">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 8.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5zm9 .5l-2.519 4-2.481-1.96-4 5.96h14l-5-8zm8-4v14h-20v-14h20zm2-2h-24v18h24v-18z"/></svg>
-        </div>
+<div *ngIf='skeletonShow'  class="skeleton-cards-wrap --movie-list">
+	<ul class="skeleton-cards-list">
+		<li class='skeleton-card'>
+			<div class='skeleton-card-poster'></div>
+			<div class='skeleton-card-content'>
+				<div class="skeleton-card-title"></div>
+				<div class="skeleton-card-description">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+				<div class="skeleton-card-btn-wrap">
+					<div class="skeleton-card-btn"></div>
+				</div>
+			</div>
+		</li>
+		<li class='skeleton-card'>
+			<div class='skeleton-card-poster'></div>
+			<div class='skeleton-card-content'>
+				<div class="skeleton-card-title"></div>
+				<div class="skeleton-card-description">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+				<div class="skeleton-card-btn-wrap">
+					<div class="skeleton-card-btn"></div>
+				</div>
+			</div>
+		</li>
+		<li class='skeleton-card'>
+			<div class='skeleton-card-poster'></div>
+			<div class='skeleton-card-content'>
+				<div class="skeleton-card-title"></div>
+				<div class="skeleton-card-description">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+				<div class="skeleton-card-btn-wrap">
+					<div class="skeleton-card-btn"></div>
+				</div>
+			</div>
+		</li>
+		<li class='skeleton-card'>
+			<div class='skeleton-card-poster'></div>
+			<div class='skeleton-card-content'>
+				<div class="skeleton-card-title"></div>
+				<div class="skeleton-card-description">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+				<div class="skeleton-card-btn-wrap">
+					<div class="skeleton-card-btn"></div>
+				</div>
+			</div>
+		</li>
+		<li class='skeleton-card'>
+			<div class='skeleton-card-poster'></div>
+			<div class='skeleton-card-content'>
+				<div class="skeleton-card-title"></div>
+				<div class="skeleton-card-description">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+				<div class="skeleton-card-btn-wrap">
+					<div class="skeleton-card-btn"></div>
+				</div>
+			</div>
+		</li>
+		<li class='skeleton-card'>
+			<div class='skeleton-card-poster'></div>
+			<div class='skeleton-card-content'>
+				<div class="skeleton-card-title"></div>
+				<div class="skeleton-card-description">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+				<div class="skeleton-card-btn-wrap">
+					<div class="skeleton-card-btn"></div>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
 
-        <div class="movie-content">
-          <div>
-            <h2 class="movie-title">{{ movie.original_title }}</h2>
-            <div class="movie-info">
-              <div class='movie-year-genres'>
-                <div class="year">{{ movie.release_date | date: 'dd.MM.yyyy' }}</div>
-              </div>
-              <div class="movie-rating">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 312.576 312.576">
-                  <path d="M255.568 74.03c-1.438-27.81-24.517-49.997-52.68-49.997a52.75 52.75 0 0 0-3.79.137C189.475 9.286 172.778 0 154.77 0c-17.916 0-34.617 9.25-44.257 24.053-.483-.014-.966-.02-1.448-.02-28.208 0-51.314 22.255-52.686 50.13-7.518 1.68-14.473 6.197-14.473 18.363 0 11.86 2.063 33.312 29.636 216.105a4.635 4.635 0 0 0 4.584 3.945H236.45a4.636 4.636 0 0 0 4.584-3.944c27.573-182.793 29.636-204.243 29.636-216.104 0-12.505-7.35-16.927-15.102-18.496zm-99.28 163.55c-29.823 0-54-17.524-54-39.142 0-21.615 24.177-39.14 54-39.14s54 17.524 54 39.14c0 21.618-24.177 39.14-54 39.14zM230.86 73.304c-20.008 0-36.617 13.315-39.398 30.59-2.78-17.274-19.39-30.59-39.4-30.59-15.225 0-28.48 7.707-35.175 19.003-6.694-11.296-19.95-19.003-35.172-19.003-1.936 0-3.825-.026-5.676-.056 1.77-16.66 15.903-29.68 33.023-29.68 1.76 0 3.543.144 5.302.427l7.237 1.165 3.142-6.622c5.476-11.544 17.26-19.003 30.024-19.003 12.91 0 24.754 7.586 30.17 19.326l3.277 7.102 7.646-1.644a33.514 33.514 0 0 1 7.026-.75c17.123 0 31.258 13.026 33.025 29.687-1.65.025-3.328.048-5.05.048z" />
-                </svg>
-                <span class="rating"><span>{{ movie.vote_average | movieRating }}</span><span>&#37;</span>
-                </span>
-              </div>
-            </div>
-            <p class="movie-description">{{ movie.overview | cutDescription }}</p>
-          </div>
-          <div class="movie-button">
-            <button class="btn" [routerLink]="['movie-info', movie.id]">Read More</button>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div class='show-more' (click)='getMoreMovies()'>
-    <button class="btn">Show More</button>
-  </div>
+<div *ngIf='!errorMessage'>
+	<div class='movies-list-wrap'>
+		<ul class="movies-list">
+			<li class='movie-card' *ngFor='let movie of moviesList'>
+				<div *ngIf='movie.poster_path' class="movie-poster" [ngStyle]="{'background-image': 'url(http://image.tmdb.org/t/p/w342/' + movie.poster_path + ')'}"></div>
+				<div *ngIf='!movie.poster_path' class="movie-poster --default">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 8.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5zm9 .5l-2.519 4-2.481-1.96-4 5.96h14l-5-8zm8-4v14h-20v-14h20zm2-2h-24v18h24v-18z"/></svg>
+				</div>
+
+				<div class="movie-content">
+					<div>
+						<h2 class="movie-title">{{ movie.original_title }}</h2>
+						<div class="movie-info">
+							<div class='movie-year-genres'>
+								<div class="year">{{ movie.release_date | date: 'dd.MM.yyyy' }}</div>
+							</div>
+							<div class="movie-rating">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 312.576 312.576">
+									<path d="M255.568 74.03c-1.438-27.81-24.517-49.997-52.68-49.997a52.75 52.75 0 0 0-3.79.137C189.475 9.286 172.778 0 154.77 0c-17.916 0-34.617 9.25-44.257 24.053-.483-.014-.966-.02-1.448-.02-28.208 0-51.314 22.255-52.686 50.13-7.518 1.68-14.473 6.197-14.473 18.363 0 11.86 2.063 33.312 29.636 216.105a4.635 4.635 0 0 0 4.584 3.945H236.45a4.636 4.636 0 0 0 4.584-3.944c27.573-182.793 29.636-204.243 29.636-216.104 0-12.505-7.35-16.927-15.102-18.496zm-99.28 163.55c-29.823 0-54-17.524-54-39.142 0-21.615 24.177-39.14 54-39.14s54 17.524 54 39.14c0 21.618-24.177 39.14-54 39.14zM230.86 73.304c-20.008 0-36.617 13.315-39.398 30.59-2.78-17.274-19.39-30.59-39.4-30.59-15.225 0-28.48 7.707-35.175 19.003-6.694-11.296-19.95-19.003-35.172-19.003-1.936 0-3.825-.026-5.676-.056 1.77-16.66 15.903-29.68 33.023-29.68 1.76 0 3.543.144 5.302.427l7.237 1.165 3.142-6.622c5.476-11.544 17.26-19.003 30.024-19.003 12.91 0 24.754 7.586 30.17 19.326l3.277 7.102 7.646-1.644a33.514 33.514 0 0 1 7.026-.75c17.123 0 31.258 13.026 33.025 29.687-1.65.025-3.328.048-5.05.048z" />
+								</svg>
+								<span class="rating"><span>{{ movie.vote_average | movieRating }}</span><span>&#37;</span>
+								</span>
+							</div>
+						</div>
+						<p class="movie-description">{{ movie.overview | cutDescription }}</p>
+					</div>
+					<div class="movie-button">
+						<button class="btn" [routerLink]="['movie-info', movie.id]">Read More</button>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class='show-more' (click)='getMoreMovies()'>
+		<button class="btn">Show More</button>
+	</div>
 </div>
 
 <div *ngIf='errorMessage' class='error'>
-  <div class='error-emoji'>(╯°□°）╯︵ ┻━┻</div>
-  <div class='error-text'>Opps, something happening and you can see puppies...</div>
+	<div class='error-emoji'>(╯°□°）╯︵ ┻━┻</div>
+	<div class='error-text'>Opps, something happening and you can see puppies...</div>
 </div>
