@@ -210,3 +210,22 @@
   margin-top: 20px;
   margin-bottom: 40px;
 }
+
+
+
+//----------------------------------------
+.skeleton {
+  padding-top: 96px;
+  background-color: grey;
+}
+
+.skeleton-list {
+  
+}
+
+.skeleton-item {
+  width: 60px;
+  height: 60px;
+  border-radius: 50% ;
+  background-color: $black;
+}
