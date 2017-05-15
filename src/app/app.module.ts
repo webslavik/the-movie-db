@@ -14,7 +14,6 @@ import { MovieInfoComponent } from './movie-info/movie-info.component';
 
 // Directives
 import { ThemeSwitchDirective } from './directives/theme-switch.directive';
-import { TypeaheadDirective } from './directives/typeahead.directive';
 
 // Shared
 import { TMDbService }  from './shared/tmdb.service';
@@ -36,14 +35,13 @@ const appRoutes: Routes = [
     AppComponent,
     NavbarComponent,
     MoviesListComponent,
-    CutDescriptionPipe,
-    MovieRatingPipe,
     MovieInfoComponent,
     HomeComponent,
     AboutComponent,
-    MoneyPipe,
     ThemeSwitchDirective,
-    TypeaheadDirective,
+    CutDescriptionPipe,
+    MovieRatingPipe,
+    MoneyPipe,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +49,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  bootstrap: [AppComponent],
-  providers: [TMDbService]
+  bootstrap: [ AppComponent ],
+  providers: [ TMDbService ]
 })
 export class AppModule { }
