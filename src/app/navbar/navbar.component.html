@@ -1,5 +1,5 @@
 <div class="navbar" [class.--sticky]='navIsSticky'>
-	<a routerLink='' class='logo'>
+	<a routerLink='' aria-label="Got to Home" class='logo'>
 		<svg id='the-movie-logo' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 407.34 160.81">
 			<polygon points="50.38 102.47 57.32 102.47 57.32 74.71 65.96 74.71 65.96 67.82 41.74 67.82 41.74 74.71 50.38 74.71 50.38 102.47"/>
 			<polygon points="88.53 102.47 95.47 102.47 95.47 67.77 88.53 67.77 88.53 81.65 78.14 81.65 78.14 67.77 71.2 67.77 71.2 102.47 78.14 102.47 78.14 88.59 88.53 88.59 88.53 102.47"/>
@@ -25,7 +25,7 @@
 	</a>
 	<div class="search">
 		<svg class='search-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52.966 52.966"><path d="M51.704 51.273L36.844 35.82c3.79-3.8 6.14-9.04 6.14-14.82 0-11.58-9.42-21-21-21s-21 9.42-21 21 9.42 21 21 21c5.082 0 9.747-1.817 13.383-4.832l14.895 15.49a.998.998 0 0 0 1.414.028 1 1 0 0 0 .028-1.413zM21.984 40c-10.478 0-19-8.523-19-19s8.522-19 19-19 19 8.523 19 19-8.525 19-19 19z"/></svg>
-		<input [(ngModel)]='query' (ngModelChange)='onSearchMovie(query)' placeholder="Search movies..." />
+		<input [(ngModel)]='query' type='text' aria-label="Search field" (ngModelChange)='onSearchMovie(query)' placeholder="Search movies..." />
 		<ul *ngIf='showSearchList' class='search-list'>
 			<li class='search-item' 
 					*ngFor='let movie of searchMovies | slice:0:10' 
@@ -45,7 +45,7 @@
 			</li>
 		</ul>
 		<div class="theme-switch">
-			<button class="theme-switch-button" (click)='onSwitchThemes()'>
+			<button class="theme-switch-button" aria-label="Switch Theme" (click)='onSwitchThemes()'>
 				<svg id='theme-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26.6 27.7">
 					<path class='theme-chooser-bucket' d="M9 3.7c-5.1 0-9 3.1-9 7V24c0 2 3 3.7 9 3.7 5.9 0 9-1.7 9-3.7V10.7c0-3.9-3.9-7-9-7zm0 1c4.3 0 7.7 2.4 7.9 5.6-1.5-1-4.5-1.6-8-1.6s-6.5.7-8 1.6C1.3 7.1 4.7 4.7 9 4.7zm.1 8.8c-2.1 0-6.5-.4-6.5-1.4s4-1.4 6.5-1.4c2.6 0 6.5.4 6.5 1.4s-4.4 1.4-6.5 1.4zM9 25.7c-5.4 0-7-1.5-7-1.7v-9.5c1.5.8 4.5 1.2 7 1.2 2.4 0 5.5-.4 7-1.2V24c-.1.2-1.6 1.7-7 1.7zm6-3.2C13 24 5 24 3 22.5v-5.6c3 1.2 9 1.2 12 0v5.6z"/>
 					<circle class='theme-chooser-paint' cx="22.6" cy="4" r="4"/>
@@ -60,7 +60,7 @@
     <ul class="theme-colors-list">
       <li *ngFor='let item of themeData' class="theme-color-item" theme-switch
       		[attr.data-theme]='item.theme' [attr.data-rotate]='item.deg' (onHide)='onSwitchThemes($event)'>
-        <button class="theme-color" [ngClass]='{"is-show": switchTheme, "is-hide": !switchTheme}'>
+        <button class="theme-color" aria-label="Choose Theme" [ngClass]='{"is-show": switchTheme, "is-hide": !switchTheme}'>
           <span class="theme-color-background" [ngClass]="item.color"></span>
           <span class="theme-color-icon">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9 22l-10-10.598 2.798-2.859 7.149 7.473 13.144-14.016 2.909 2.806z"/></svg>
