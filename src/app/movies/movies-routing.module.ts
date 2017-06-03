@@ -7,7 +7,7 @@ import { MovieInfoComponent } from './movie-info/movie-info.component';
 @NgModule({
     imports: [
         RouterModule.forChild([
-            { path: '', component: MoviesListComponent },
+            { path: 'movies-list', component: MoviesListComponent },
             { path: 'movie-info/:id', component: MovieInfoComponent },
         ])
     ],

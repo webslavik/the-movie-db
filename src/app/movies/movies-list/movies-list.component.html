@@ -119,7 +119,7 @@
 						<p class="movie-description">{{ movie.overview | cutDescription }}</p>
 					</div>
 					<div class="movie-button" aria-label="Go to movie">
-						<button class="btn" [routerLink]="['movie-info', movie.id]">Read More</button>
+						<button class="btn" (click)='goToMovie(movie.id)'>Read More</button>
 					</div>
 				</div>
 			</li>

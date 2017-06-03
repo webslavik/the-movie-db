@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TMDbService } from '../../shared/tmdb.service';
 
 @Component({
@@ -7,17 +8,14 @@ import { TMDbService } from '../../shared/tmdb.service';
 	styleUrls: ['./movies-list.component.scss'],
 })
 export class MoviesListComponent implements OnInit {
-
 	moviesList: object[] = [];
 	errorMessage: string;
 	skeletonShow: boolean = true;
 
-	constructor(private tmdbService: TMDbService) { }
+	constructor(private router: Router, private tmdbService: TMDbService) { }
 
 	ngOnInit() {
-
 		this.getMovies();
-
 	}
 
 	getMovies() {
@@ -34,7 +32,6 @@ export class MoviesListComponent implements OnInit {
 					});
 	}
 
-
 	getMoreMovies() {
 		this.tmdbService.getMoreMovies()
 				.subscribe(
@@ -46,4 +43,7 @@ export class MoviesListComponent implements OnInit {
 					});
 	}
 
+	goToMovie(id: number) {
+		this.router.navigate(['/movie-info', id]);
+	}
 }

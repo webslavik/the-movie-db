@@ -30,8 +30,6 @@ export class MovieInfoComponent implements OnInit {
 			this.getMovieInfo(id);
 			this.getCredits(id);
 		});
-
-
 	}
 
 	getMovieInfo(id: number) {
@@ -64,9 +62,8 @@ export class MovieInfoComponent implements OnInit {
 						this.screenplay = credits.screenplay.join(', ');
 					},
 					error => {
-						console.error(error);
+						// console.error(error);
 					}
 				)
 	}
-
 }

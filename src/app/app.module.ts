@@ -14,7 +14,6 @@ import { TMDbService }  from './shared/tmdb.service';
 import { MoviesModule } from './movies/movies.module';
 import { AppRoutingModule } from './app-routing.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,
