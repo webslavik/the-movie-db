@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { TMDbService } from '../shared/tmdb.service';
+import { TMDbService } from '../../shared/tmdb.service';
 
 @Component({
-	selector: 'app-movies-list',
+	selector: 'movies-list',
 	templateUrl: './movies-list.component.html',
 	styleUrls: ['./movies-list.component.scss'],
 })

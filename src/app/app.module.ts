@@ -4,50 +4,29 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
 
-// Components
 import { AppComponent } from './app.component';
-import { AboutComponent } from './about/about.component';
-import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { MoviesListComponent } from './movies-list/movies-list.component';
-import { MovieInfoComponent } from './movie-info/movie-info.component';
 
-// Directives
 import { ThemeSwitchDirective } from './directives/theme-switch.directive';
 
-// Shared
 import { TMDbService }  from './shared/tmdb.service';
-import { CutDescriptionPipe } from './shared/cut-description.pipe';
-import { MovieRatingPipe } from './shared/movie-rating.pipe';
-import { MoneyPipe } from './shared/money.pipe';
 
-
-const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'movie-info/:id', component: MovieInfoComponent },
-  { path: 'about', component: AboutComponent },
-  { path: '**', redirectTo: '/' },
-];
+import { MoviesModule } from './movies/movies.module';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    MoviesListComponent,
-    MovieInfoComponent,
-    HomeComponent,
-    AboutComponent,
     ThemeSwitchDirective,
-    CutDescriptionPipe,
-    MovieRatingPipe,
-    MoneyPipe,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule,
+    MoviesModule
   ],
   bootstrap: [ AppComponent ],
   providers: [ TMDbService ]

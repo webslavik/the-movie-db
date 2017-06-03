@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
-import { TMDbService } from '../shared/tmdb.service';
+import { TMDbService } from '../../shared/tmdb.service';
 
 
 @Component({
-	selector: 'app-movie-info',
+	selector: 'movie-info',
 	templateUrl: './movie-info.component.html',
 	styleUrls: ['./movie-info.component.scss'],
 })
