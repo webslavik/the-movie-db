@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TMDbService } from '../../shared/tmdb.service';
+import { moveIn, fallIn, moveInLeft } from '../../_animations/animations';
 
 @Component({
 	selector: 'movies-list',
 	templateUrl: './movies-list.component.html',
 	styleUrls: ['./movies-list.component.scss'],
+	animations: [moveIn(), fallIn(), moveInLeft()],
+	// host: {'[@moveIn]': ''}
 })
 export class MoviesListComponent implements OnInit {
 	moviesList: object[] = [];

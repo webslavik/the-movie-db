@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { TMDbService } from '../../shared/tmdb.service';
 
-
 @Component({
 	selector: 'movie-info',
 	templateUrl: './movie-info.component.html',
